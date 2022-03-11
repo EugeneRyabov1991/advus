@@ -1,0 +1,4019 @@
+**************************************************
+*-- Class:        cformparam (d:\work\vfp\danger\libs\mainform.vcx)
+*-- ParentClass:  cformintoplevel (d:\work\vfp\common\libs\pdro.vcx)
+*-- BaseClass:    form
+*-- Time Stamp:   02/15/08 06:09:00 PM
+*
+DEFINE CLASS cformparam AS cformintoplevel
+
+
+	Height = 440
+	Width = 744
+	DoCreate = .T.
+	ShowTips = .T.
+	BorderStyle = 2
+	Caption = "Расчет коэффициента степени опасности для ОПС (Wi)."
+	Icon = "..\..\common\bmp\new.ico"
+	HelpContextID = 7
+	Name = "cformparam"
+	m_nx = .F.
+	m_nz = .F.
+	m_nlgw = .F.
+	m_nw = .F.
+	m_ocurcombo = .F.
+	DIMENSION arp18[4]
+
+
+	ADD OBJECT cpanel2 AS cpanel WITH ;
+		Height = 379, ;
+		Left = 2, ;
+		TabIndex = 75, ;
+		Top = 28, ;
+		Width = 739, ;
+		ZOrderSet = 0, ;
+		Name = "Cpanel2"
+
+
+	ADD OBJECT cshape1 AS cshape WITH ;
+		Top = 32, ;
+		Left = 7, ;
+		Height = 372, ;
+		Width = 729, ;
+		BackStyle = 0, ;
+		ZOrderSet = 1, ;
+		Name = "Cshape1"
+
+
+	ADD OBJECT cshape16 AS cshape WITH ;
+		Top = 32, ;
+		Left = 360, ;
+		Height = 261, ;
+		Width = 25, ;
+		BackStyle = 0, ;
+		BackColor = RGB(255,255,128), ;
+		ZOrderSet = 2, ;
+		Name = "Cshape16"
+
+
+	ADD OBJECT cshape2 AS cshape WITH ;
+		Top = 291, ;
+		Left = 360, ;
+		Height = 112, ;
+		Width = 2, ;
+		BackStyle = 0, ;
+		BackColor = RGB(255,255,128), ;
+		ZOrderSet = 3, ;
+		Name = "Cshape2"
+
+
+	ADD OBJECT cshape15 AS cshape WITH ;
+		Top = 32, ;
+		Left = 7, ;
+		Height = 372, ;
+		Width = 25, ;
+		BackStyle = 0, ;
+		BackColor = RGB(255,255,128), ;
+		ZOrderSet = 4, ;
+		Name = "Cshape15"
+
+
+	ADD OBJECT cformbutton4 AS cformbutton WITH ;
+		Top = 35, ;
+		Left = 708, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\address_book16.bmp", ;
+		Caption = "", ;
+		TabIndex = 52, ;
+		ToolTipText = "Литература ...", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 5, ;
+		Name = "Cformbutton4"
+
+
+	ADD OBJECT cformbutton3 AS cformbutton WITH ;
+		Top = 35, ;
+		Left = 679, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\cut16.bmp", ;
+		Caption = "", ;
+		TabIndex = 51, ;
+		ToolTipText = "Стереть", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 6, ;
+		Name = "Cformbutton3"
+
+
+	ADD OBJECT cformbutton2 AS cformbutton WITH ;
+		Top = 35, ;
+		Left = 332, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\address_book16.bmp", ;
+		Caption = "", ;
+		TabIndex = 34, ;
+		ToolTipText = "Литература ...", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 7, ;
+		Name = "Cformbutton2"
+
+
+	ADD OBJECT cformbutton1 AS cformbutton WITH ;
+		Top = 35, ;
+		Left = 304, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\cut16.bmp", ;
+		Caption = "", ;
+		TabIndex = 33, ;
+		ToolTipText = "Стереть", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 8, ;
+		Name = "Cformbutton1"
+
+
+	ADD OBJECT clabel48 AS clabel WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		WordWrap = .T., ;
+		Caption = "Давление насыщенных паров (Cнас) [мг/м3]", ;
+		Height = 15, ;
+		Left = 366, ;
+		Top = 345, ;
+		Width = 228, ;
+		TabIndex = 78, ;
+		ZOrderSet = 9, ;
+		Name = "Clabel48"
+
+
+	ADD OBJECT clabel40 AS clabel WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		WordWrap = .T., ;
+		Caption = "Растворимость (S):", ;
+		Height = 15, ;
+		Left = 366, ;
+		Top = 294, ;
+		Width = 98, ;
+		TabIndex = 78, ;
+		ZOrderSet = 10, ;
+		Name = "Clabel40"
+
+
+	ADD OBJECT cformbutton5 AS cformbutton WITH ;
+		Top = 63, ;
+		Left = 332, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\address_book16.bmp", ;
+		Caption = "", ;
+		TabIndex = 36, ;
+		ToolTipText = "Литература ...", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 11, ;
+		Name = "Cformbutton5"
+
+
+	ADD OBJECT clabel1 AS clabel WITH ;
+		FontBold = .T., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Caption = "Компонент:", ;
+		Left = 6, ;
+		Top = 5, ;
+		TabIndex = 76, ;
+		ZOrderSet = 12, ;
+		Name = "Clabel1"
+
+
+	ADD OBJECT txtname AS cformtextbox WITH ;
+		FontBold = .T., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		BackStyle = 0, ;
+		Height = 23, ;
+		Left = 89, ;
+		ReadOnly = .T., ;
+		TabIndex = 77, ;
+		Top = 1, ;
+		Width = 651, ;
+		ForeColor = RGB(0,0,0), ;
+		BackColor = RGB(255,255,255), ;
+		DisabledBackColor = RGB(192,192,192), ;
+		ZOrderSet = 13, ;
+		Name = "txtName"
+
+
+	ADD OBJECT clabel2 AS clabel WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		WordWrap = .T., ;
+		Caption = "ПДКп (ОДК) [мг/кг]", ;
+		Height = 28, ;
+		Left = 37, ;
+		Top = 34, ;
+		Width = 65, ;
+		TabIndex = 78, ;
+		ZOrderSet = 14, ;
+		Name = "Clabel2"
+
+
+	ADD OBJECT clabel3 AS clabel WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Caption = "Класс опасности в почве", ;
+		Height = 15, ;
+		Left = 35, ;
+		Top = 68, ;
+		TabIndex = 79, ;
+		ZOrderSet = 15, ;
+		Name = "Clabel3"
+
+
+	ADD OBJECT clabel4 AS clabel WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		WordWrap = .T., ;
+		Caption = "ПДКв (ОДУ, ОБУВ) [мг/л]", ;
+		Height = 28, ;
+		Left = 35, ;
+		Top = 92, ;
+		Width = 102, ;
+		TabIndex = 80, ;
+		ZOrderSet = 16, ;
+		Name = "Clabel4"
+
+
+	ADD OBJECT clabel5 AS clabel WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		WordWrap = .T., ;
+		Caption = "Класс опасности в воде хоз.- питьевого использования", ;
+		Height = 28, ;
+		Left = 35, ;
+		Top = 123, ;
+		Width = 151, ;
+		TabIndex = 81, ;
+		ZOrderSet = 17, ;
+		Name = "Clabel5"
+
+
+	ADD OBJECT clabel52 AS clabel WITH ;
+		FontName = "MS Serif", ;
+		FontSize = 6, ;
+		Caption = "3", ;
+		Height = 12, ;
+		Left = 444, ;
+		Top = 232, ;
+		TabIndex = 83, ;
+		ZOrderSet = 18, ;
+		Name = "Clabel52"
+
+
+	ADD OBJECT clabel46 AS clabel WITH ;
+		FontName = "MS Serif", ;
+		FontSize = 6, ;
+		Caption = "водн", ;
+		Height = 12, ;
+		Left = 403, ;
+		Top = 261, ;
+		TabIndex = 83, ;
+		ZOrderSet = 18, ;
+		Name = "Clabel46"
+
+
+	ADD OBJECT clabel45 AS clabel WITH ;
+		FontName = "MS Serif", ;
+		FontSize = 6, ;
+		Caption = "50", ;
+		Height = 12, ;
+		Left = 403, ;
+		Top = 273, ;
+		TabIndex = 84, ;
+		ZOrderSet = 19, ;
+		Name = "Clabel45"
+
+
+	ADD OBJECT clabel44 AS clabel WITH ;
+		FontName = "MS Serif", ;
+		FontSize = 6, ;
+		Caption = "50", ;
+		Height = 12, ;
+		Left = 402, ;
+		Top = 240, ;
+		TabIndex = 89, ;
+		ZOrderSet = 20, ;
+		Name = "Clabel44"
+
+
+	ADD OBJECT clabel43 AS clabel WITH ;
+		FontName = "MS Serif", ;
+		FontSize = 6, ;
+		Caption = "50", ;
+		Height = 12, ;
+		Left = 402, ;
+		Top = 203, ;
+		TabIndex = 90, ;
+		ZOrderSet = 21, ;
+		Name = "Clabel43"
+
+
+	ADD OBJECT cformbutton6 AS cformbutton WITH ;
+		Top = 63, ;
+		Left = 304, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\cut16.bmp", ;
+		Caption = "", ;
+		TabIndex = 35, ;
+		ToolTipText = "Стереть", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 22, ;
+		Name = "Cformbutton6"
+
+
+	ADD OBJECT clabel6 AS clabel WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		WordWrap = .T., ;
+		Caption = "ПДКс.с. (ПДКм.р., ОБУВ) [мг/м  ]", ;
+		Height = 28, ;
+		Left = 35, ;
+		Top = 228, ;
+		Width = 97, ;
+		TabIndex = 87, ;
+		ZOrderSet = 23, ;
+		Name = "Clabel6"
+
+
+	ADD OBJECT clabel7 AS clabel WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		WordWrap = .T., ;
+		Caption = "Класс опасности в атмосферном воздухе", ;
+		Height = 28, ;
+		Left = 35, ;
+		Top = 260, ;
+		Width = 116, ;
+		TabIndex = 91, ;
+		ZOrderSet = 24, ;
+		Name = "Clabel7"
+
+
+	ADD OBJECT clabel8 AS clabel WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Caption = "ПДКпп (МДУ, МДС) [мг/кг]", ;
+		Height = 15, ;
+		Left = 391, ;
+		Top = 40, ;
+		TabIndex = 92, ;
+		ZOrderSet = 25, ;
+		Name = "Clabel8"
+
+
+	ADD OBJECT clabel9 AS clabel WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Caption = "Lg (S[мг/л]/ПДКв [мг/л])", ;
+		Height = 15, ;
+		Left = 391, ;
+		Top = 68, ;
+		TabIndex = 93, ;
+		ZOrderSet = 26, ;
+		Name = "Clabel9"
+
+
+	ADD OBJECT clabel10 AS clabel WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Caption = "Lg (Cнас[мг/м ]/ПДКр.з.)", ;
+		Height = 15, ;
+		Left = 390, ;
+		Top = 98, ;
+		TabIndex = 94, ;
+		ZOrderSet = 27, ;
+		Name = "Clabel10"
+
+
+	ADD OBJECT clabel11 AS clabel WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		WordWrap = .T., ;
+		Caption = "Lg (Cнас[мг/м ] /ПДКс.с.(ПДК м.р.))", ;
+		Height = 28, ;
+		Left = 388, ;
+		Top = 123, ;
+		Width = 105, ;
+		TabIndex = 95, ;
+		ZOrderSet = 28, ;
+		Name = "Clabel11"
+
+
+	ADD OBJECT clabel12 AS clabel WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Caption = "Lg Kow (октанол/вода)", ;
+		Height = 15, ;
+		Left = 390, ;
+		Top = 163, ;
+		TabIndex = 96, ;
+		ZOrderSet = 29, ;
+		Name = "Clabel12"
+
+
+	ADD OBJECT clabel13 AS clabel WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Caption = "LD   [мг/кг]", ;
+		Height = 15, ;
+		Left = 389, ;
+		Top = 196, ;
+		TabIndex = 97, ;
+		ZOrderSet = 30, ;
+		Name = "Clabel13"
+
+
+	ADD OBJECT clabel14 AS clabel WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Caption = "LC    [мг/м  ]", ;
+		Height = 15, ;
+		Left = 389, ;
+		Top = 235, ;
+		TabIndex = 98, ;
+		ZOrderSet = 31, ;
+		Name = "Clabel14"
+
+
+	ADD OBJECT clabel15 AS clabel WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Caption = "LC        [мг/л/96ч]", ;
+		Height = 15, ;
+		Left = 389, ;
+		Top = 268, ;
+		TabIndex = 99, ;
+		ZOrderSet = 32, ;
+		Name = "Clabel15"
+
+
+	ADD OBJECT clabel16 AS clabel WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		WordWrap = .T., ;
+		Caption = "БД = БПК/                 ХПК 100%", ;
+		Height = 28, ;
+		Left = 35, ;
+		Top = 293, ;
+		Width = 78, ;
+		TabIndex = 100, ;
+		ZOrderSet = 33, ;
+		Name = "Clabel16"
+
+
+	ADD OBJECT clabel17 AS clabel WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Caption = "Персистентность (трансформация в окр. природной среде)", ;
+		Height = 15, ;
+		Left = 35, ;
+		Top = 321, ;
+		TabIndex = 101, ;
+		ZOrderSet = 34, ;
+		Name = "Clabel17"
+
+
+	ADD OBJECT clabel18 AS clabel WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Caption = "Биоаккумуляция (поведение в пищевой цепочке)", ;
+		Height = 15, ;
+		Left = 35, ;
+		Top = 364, ;
+		TabIndex = 102, ;
+		ZOrderSet = 35, ;
+		Name = "Clabel18"
+
+
+	ADD OBJECT cformbutton7 AS cformbutton WITH ;
+		Top = 63, ;
+		Left = 708, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\address_book16.bmp", ;
+		Caption = "", ;
+		TabIndex = 54, ;
+		ToolTipText = "Литература ...", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 36, ;
+		Name = "Cformbutton7"
+
+
+	ADD OBJECT cformbutton8 AS cformbutton WITH ;
+		Top = 63, ;
+		Left = 679, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\cut16.bmp", ;
+		Caption = "", ;
+		TabIndex = 53, ;
+		ToolTipText = "Стереть", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 37, ;
+		Name = "Cformbutton8"
+
+
+	ADD OBJECT cshape5 AS cshape WITH ;
+		Top = 61, ;
+		Left = 7, ;
+		Height = 0, ;
+		Width = 726, ;
+		BackStyle = 0, ;
+		ZOrderSet = 38, ;
+		Name = "Cshape5"
+
+
+	ADD OBJECT cshape6 AS cshape WITH ;
+		Top = 90, ;
+		Left = 7, ;
+		Height = 0, ;
+		Width = 726, ;
+		BackStyle = 0, ;
+		ZOrderSet = 39, ;
+		Name = "Cshape6"
+
+
+	ADD OBJECT cshape7 AS cshape WITH ;
+		Top = 119, ;
+		Left = 7, ;
+		Height = 0, ;
+		Width = 726, ;
+		BackStyle = 0, ;
+		ZOrderSet = 40, ;
+		Name = "Cshape7"
+
+
+	ADD OBJECT cshape8 AS cshape WITH ;
+		Top = 156, ;
+		Left = 7, ;
+		Height = 0, ;
+		Width = 726, ;
+		BackStyle = 0, ;
+		ZOrderSet = 41, ;
+		Name = "Cshape8"
+
+
+	ADD OBJECT cshape9 AS cshape WITH ;
+		Top = 185, ;
+		Left = 7, ;
+		Height = 0, ;
+		Width = 726, ;
+		BackStyle = 0, ;
+		ZOrderSet = 42, ;
+		Name = "Cshape9"
+
+
+	ADD OBJECT cshape10 AS cshape WITH ;
+		Top = 227, ;
+		Left = 7, ;
+		Height = 0, ;
+		Width = 726, ;
+		BackStyle = 0, ;
+		ZOrderSet = 43, ;
+		Name = "Cshape10"
+
+
+	ADD OBJECT cshape11 AS cshape WITH ;
+		Top = 257, ;
+		Left = 7, ;
+		Height = 0, ;
+		Width = 726, ;
+		BackStyle = 0, ;
+		ZOrderSet = 44, ;
+		Name = "Cshape11"
+
+
+	ADD OBJECT cshape12 AS cshape WITH ;
+		Top = 292, ;
+		Left = 7, ;
+		Height = 0, ;
+		Width = 726, ;
+		BackStyle = 0, ;
+		ZOrderSet = 45, ;
+		Name = "Cshape12"
+
+
+	ADD OBJECT cshape13 AS cshape WITH ;
+		Top = 363, ;
+		Left = 7, ;
+		Height = 2, ;
+		Width = 355, ;
+		BackStyle = 0, ;
+		ZOrderSet = 46, ;
+		Name = "Cshape13"
+
+
+	ADD OBJECT btnok AS cformbutton WITH ;
+		Top = 410, ;
+		Left = 644, ;
+		Height = 30, ;
+		Width = 94, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\", ;
+		Caption = "Ok", ;
+		TabIndex = 73, ;
+		Visible = .T., ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 47, ;
+		Name = "btnOk"
+
+
+	ADD OBJECT cformbutton9 AS cformbutton WITH ;
+		Top = 93, ;
+		Left = 332, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\address_book16.bmp", ;
+		Caption = "", ;
+		TabIndex = 38, ;
+		ToolTipText = "Литература ...", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 48, ;
+		Name = "Cformbutton9"
+
+
+	ADD OBJECT cformbutton10 AS cformbutton WITH ;
+		Top = 93, ;
+		Left = 304, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\cut16.bmp", ;
+		Caption = "", ;
+		TabIndex = 37, ;
+		ToolTipText = "Стереть", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 49, ;
+		Name = "Cformbutton10"
+
+
+	ADD OBJECT clabel19 AS clabel WITH ;
+		FontBold = .T., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Caption = "3.", ;
+		Height = 15, ;
+		Left = 17, ;
+		Top = 98, ;
+		TabIndex = 104, ;
+		ForeColor = RGB(0,0,255), ;
+		ZOrderSet = 50, ;
+		Name = "Clabel19"
+
+
+	ADD OBJECT clabel20 AS clabel WITH ;
+		FontBold = .T., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Caption = "2.", ;
+		Height = 15, ;
+		Left = 17, ;
+		Top = 68, ;
+		TabIndex = 105, ;
+		ForeColor = RGB(0,0,255), ;
+		ZOrderSet = 51, ;
+		Name = "Clabel20"
+
+
+	ADD OBJECT clabel21 AS clabel WITH ;
+		FontBold = .T., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Caption = "1.", ;
+		Height = 15, ;
+		Left = 17, ;
+		Top = 40, ;
+		Width = 13, ;
+		TabIndex = 108, ;
+		ForeColor = RGB(0,0,255), ;
+		ZOrderSet = 52, ;
+		Name = "Clabel21"
+
+
+	ADD OBJECT clabel24 AS clabel WITH ;
+		FontBold = .T., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Caption = "9.", ;
+		Height = 15, ;
+		Left = 371, ;
+		Top = 40, ;
+		TabIndex = 107, ;
+		ForeColor = RGB(0,0,255), ;
+		ZOrderSet = 53, ;
+		Name = "Clabel24"
+
+
+	ADD OBJECT clabel23 AS clabel WITH ;
+		FontBold = .T., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Caption = "10.", ;
+		Height = 15, ;
+		Left = 364, ;
+		Top = 68, ;
+		TabIndex = 106, ;
+		ForeColor = RGB(0,0,255), ;
+		ZOrderSet = 54, ;
+		Name = "Clabel23"
+
+
+	ADD OBJECT clabel22 AS clabel WITH ;
+		FontBold = .T., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Caption = "11.", ;
+		Height = 15, ;
+		Left = 364, ;
+		Top = 98, ;
+		TabIndex = 103, ;
+		ForeColor = RGB(0,0,255), ;
+		ZOrderSet = 55, ;
+		Name = "Clabel22"
+
+
+	ADD OBJECT clabel31 AS clabel WITH ;
+		FontBold = .T., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Caption = "18.", ;
+		Height = 15, ;
+		Left = 10, ;
+		Top = 332, ;
+		TabIndex = 112, ;
+		ForeColor = RGB(0,0,255), ;
+		ZOrderSet = 56, ;
+		Name = "Clabel31"
+
+
+	ADD OBJECT clabel33 AS clabel WITH ;
+		FontBold = .T., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Caption = "15.", ;
+		Height = 15, ;
+		Left = 364, ;
+		Top = 232, ;
+		TabIndex = 114, ;
+		ForeColor = RGB(0,0,255), ;
+		ZOrderSet = 57, ;
+		Name = "Clabel33"
+
+
+	ADD OBJECT clabel30 AS clabel WITH ;
+		FontBold = .T., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Caption = "19.", ;
+		Height = 15, ;
+		Left = 10, ;
+		Top = 375, ;
+		TabIndex = 113, ;
+		ForeColor = RGB(0,0,255), ;
+		ZOrderSet = 58, ;
+		Name = "Clabel30"
+
+
+	ADD OBJECT clabel26 AS clabel WITH ;
+		FontBold = .T., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Caption = "7.", ;
+		Height = 15, ;
+		Left = 17, ;
+		Top = 235, ;
+		TabIndex = 115, ;
+		ForeColor = RGB(0,0,255), ;
+		ZOrderSet = 59, ;
+		Name = "Clabel26"
+
+
+	ADD OBJECT clabel34 AS clabel WITH ;
+		FontBold = .T., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Caption = "14.", ;
+		Height = 15, ;
+		Left = 364, ;
+		Top = 198, ;
+		TabIndex = 116, ;
+		ForeColor = RGB(0,0,255), ;
+		ZOrderSet = 60, ;
+		Name = "Clabel34"
+
+
+	ADD OBJECT clabel27 AS clabel WITH ;
+		FontBold = .T., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Caption = "6.", ;
+		Height = 15, ;
+		Left = 17, ;
+		Top = 198, ;
+		TabIndex = 117, ;
+		ForeColor = RGB(0,0,255), ;
+		ZOrderSet = 61, ;
+		Name = "Clabel27"
+
+
+	ADD OBJECT clabel35 AS clabel WITH ;
+		FontBold = .T., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Caption = "13.", ;
+		Height = 15, ;
+		Left = 364, ;
+		Top = 163, ;
+		TabIndex = 118, ;
+		ForeColor = RGB(0,0,255), ;
+		ZOrderSet = 62, ;
+		Name = "Clabel35"
+
+
+	ADD OBJECT clabel36 AS clabel WITH ;
+		FontBold = .T., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Caption = "12.", ;
+		Height = 15, ;
+		Left = 364, ;
+		Top = 130, ;
+		TabIndex = 120, ;
+		ForeColor = RGB(0,0,255), ;
+		ZOrderSet = 63, ;
+		Name = "Clabel36"
+
+
+	ADD OBJECT clabel37 AS clabel WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		WordWrap = .T., ;
+		Caption = "ПДКр.х. (ОБУВ) [мг/л]", ;
+		Height = 28, ;
+		Left = 35, ;
+		Top = 157, ;
+		Width = 82, ;
+		TabIndex = 122, ;
+		ZOrderSet = 64, ;
+		Name = "Clabel37"
+
+
+	ADD OBJECT clabel38 AS clabel WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		WordWrap = .T., ;
+		Caption = "Класс опасности в воде рыбохозяйственного использования", ;
+		Height = 41, ;
+		Left = 35, ;
+		Top = 185, ;
+		Width = 125, ;
+		TabIndex = 123, ;
+		ZOrderSet = 65, ;
+		Name = "Clabel38"
+
+
+	ADD OBJECT cshape14 AS cshape WITH ;
+		Top = 320, ;
+		Left = 8, ;
+		Height = 1, ;
+		Width = 352, ;
+		BackStyle = 0, ;
+		ZOrderSet = 66, ;
+		Name = "Cshape14"
+
+
+	ADD OBJECT clabel28 AS clabel WITH ;
+		FontBold = .T., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Caption = "5.", ;
+		Height = 15, ;
+		Left = 17, ;
+		Top = 163, ;
+		TabIndex = 119, ;
+		ForeColor = RGB(0,0,255), ;
+		ZOrderSet = 67, ;
+		Name = "Clabel28"
+
+
+	ADD OBJECT clabel29 AS clabel WITH ;
+		FontBold = .T., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Caption = "4.", ;
+		Height = 15, ;
+		Left = 17, ;
+		Top = 130, ;
+		TabIndex = 121, ;
+		ForeColor = RGB(0,0,255), ;
+		ZOrderSet = 68, ;
+		Name = "Clabel29"
+
+
+	ADD OBJECT clabel39 AS clabel WITH ;
+		FontBold = .T., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Caption = "17.", ;
+		Height = 15, ;
+		Left = 10, ;
+		Top = 300, ;
+		TabIndex = 111, ;
+		ForeColor = RGB(0,0,255), ;
+		ZOrderSet = 69, ;
+		Name = "Clabel39"
+
+
+	ADD OBJECT clabel25 AS clabel WITH ;
+		FontBold = .T., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Caption = "8.", ;
+		Height = 15, ;
+		Left = 17, ;
+		Top = 267, ;
+		TabIndex = 110, ;
+		ForeColor = RGB(0,0,255), ;
+		ZOrderSet = 70, ;
+		Name = "Clabel25"
+
+
+	ADD OBJECT clabel32 AS clabel WITH ;
+		FontBold = .T., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Caption = "16.", ;
+		Height = 15, ;
+		Left = 364, ;
+		Top = 267, ;
+		TabIndex = 109, ;
+		ForeColor = RGB(0,0,255), ;
+		ZOrderSet = 71, ;
+		Name = "Clabel32"
+
+
+	ADD OBJECT clabel47 AS clabel WITH ;
+		FontName = "MS Serif", ;
+		FontSize = 6, ;
+		Caption = "5", ;
+		Height = 12, ;
+		Left = 81, ;
+		Top = 298, ;
+		Width = 6, ;
+		TabIndex = 82, ;
+		ZOrderSet = 72, ;
+		Name = "Clabel47"
+
+
+	ADD OBJECT cmbp1 AS cformcombobox WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Height = 24, ;
+		Left = 251, ;
+		SpecialEffect = 2, ;
+		TabIndex = 2, ;
+		Top = 35, ;
+		Width = 50, ;
+		ZOrderSet = 73, ;
+		Name = "cmbP1"
+
+
+	ADD OBJECT cmbp2 AS cformcombobox WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Height = 24, ;
+		Left = 251, ;
+		SpecialEffect = 2, ;
+		TabIndex = 3, ;
+		Top = 63, ;
+		Width = 50, ;
+		ZOrderSet = 74, ;
+		Name = "cmbP2"
+
+
+	ADD OBJECT cmbp3 AS cformcombobox WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Height = 24, ;
+		Left = 251, ;
+		SpecialEffect = 2, ;
+		TabIndex = 5, ;
+		Top = 93, ;
+		Width = 50, ;
+		ZOrderSet = 75, ;
+		Name = "cmbP3"
+
+
+	ADD OBJECT cmbp4 AS cformcombobox WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Height = 24, ;
+		Left = 251, ;
+		SpecialEffect = 2, ;
+		TabIndex = 6, ;
+		Top = 125, ;
+		Width = 50, ;
+		ZOrderSet = 76, ;
+		Name = "cmbP4"
+
+
+	ADD OBJECT cmbp15 AS cformcombobox WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Left = 625, ;
+		SpecialEffect = 2, ;
+		TabIndex = 26, ;
+		Top = 230, ;
+		Width = 50, ;
+		ZOrderSet = 77, ;
+		Name = "cmbP15"
+
+
+	ADD OBJECT cmbp14 AS cformcombobox WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Left = 625, ;
+		SpecialEffect = 2, ;
+		TabIndex = 24, ;
+		Top = 193, ;
+		Width = 50, ;
+		ZOrderSet = 78, ;
+		Name = "cmbP14"
+
+
+	ADD OBJECT cmbp13 AS cformcombobox WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Left = 625, ;
+		SpecialEffect = 2, ;
+		TabIndex = 22, ;
+		Top = 158, ;
+		Width = 50, ;
+		ZOrderSet = 79, ;
+		Name = "cmbP13"
+
+
+	ADD OBJECT cmbp12 AS cformcombobox WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Left = 625, ;
+		SpecialEffect = 2, ;
+		TabIndex = 20, ;
+		Top = 125, ;
+		Width = 50, ;
+		ZOrderSet = 80, ;
+		Name = "cmbP12"
+
+
+	ADD OBJECT cmbp11 AS cformcombobox WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Left = 625, ;
+		SpecialEffect = 2, ;
+		TabIndex = 18, ;
+		Top = 93, ;
+		Width = 50, ;
+		ZOrderSet = 81, ;
+		Name = "cmbP11"
+
+
+	ADD OBJECT cmbp10 AS cformcombobox WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Left = 625, ;
+		SpecialEffect = 2, ;
+		TabIndex = 16, ;
+		Top = 63, ;
+		Width = 50, ;
+		ZOrderSet = 82, ;
+		Name = "cmbP10"
+
+
+	ADD OBJECT cmbp9 AS cformcombobox WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Left = 625, ;
+		SpecialEffect = 2, ;
+		TabIndex = 14, ;
+		Top = 35, ;
+		Width = 50, ;
+		ZOrderSet = 83, ;
+		Name = "cmbP9"
+
+
+	ADD OBJECT cmbp8 AS cformcombobox WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Height = 24, ;
+		Left = 251, ;
+		SpecialEffect = 2, ;
+		TabIndex = 12, ;
+		Top = 262, ;
+		Width = 50, ;
+		ZOrderSet = 84, ;
+		Name = "cmbP8"
+
+
+	ADD OBJECT cmbp7 AS cformcombobox WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Height = 24, ;
+		Left = 251, ;
+		SpecialEffect = 2, ;
+		TabIndex = 11, ;
+		Top = 230, ;
+		Width = 50, ;
+		ZOrderSet = 85, ;
+		Name = "cmbP7"
+
+
+	ADD OBJECT cmbp6 AS cformcombobox WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Height = 24, ;
+		Left = 251, ;
+		SpecialEffect = 2, ;
+		TabIndex = 9, ;
+		Top = 193, ;
+		Width = 50, ;
+		ZOrderSet = 86, ;
+		Name = "cmbP6"
+
+
+	ADD OBJECT cmbp5 AS cformcombobox WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Height = 24, ;
+		Left = 251, ;
+		SpecialEffect = 2, ;
+		TabIndex = 8, ;
+		Top = 158, ;
+		Width = 50, ;
+		ZOrderSet = 87, ;
+		Name = "cmbP5"
+
+
+	ADD OBJECT cmbp19 AS cformcombobox WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Height = 21, ;
+		Left = 35, ;
+		SpecialEffect = 2, ;
+		TabIndex = 32, ;
+		Top = 378, ;
+		Width = 265, ;
+		ZOrderSet = 88, ;
+		Name = "cmbP19"
+
+
+	ADD OBJECT cmbp18 AS cformcombobox WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Height = 21, ;
+		Left = 34, ;
+		SpecialEffect = 2, ;
+		TabIndex = 31, ;
+		Top = 337, ;
+		Width = 266, ;
+		ZOrderSet = 89, ;
+		Name = "cmbP18"
+
+
+	ADD OBJECT cmbp17 AS cformcombobox WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Height = 24, ;
+		Left = 251, ;
+		SpecialEffect = 2, ;
+		TabIndex = 30, ;
+		Top = 295, ;
+		Width = 50, ;
+		ZOrderSet = 90, ;
+		Name = "cmbP17"
+
+
+	ADD OBJECT cmbp16 AS cformcombobox WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Left = 625, ;
+		SpecialEffect = 2, ;
+		TabIndex = 28, ;
+		Top = 262, ;
+		Width = 50, ;
+		ZOrderSet = 91, ;
+		Name = "cmbP16"
+
+
+	ADD OBJECT clabel50 AS clabel WITH ;
+		FontName = "MS Serif", ;
+		FontSize = 6, ;
+		Caption = "3", ;
+		Height = 12, ;
+		Left = 459, ;
+		Top = 123, ;
+		Width = 7, ;
+		TabIndex = 86, ;
+		ZOrderSet = 92, ;
+		Name = "Clabel50"
+
+
+	ADD OBJECT clabel42 AS clabel WITH ;
+		FontName = "MS Serif", ;
+		FontSize = 6, ;
+		Caption = "3", ;
+		Height = 12, ;
+		Left = 460, ;
+		Top = 94, ;
+		Width = 7, ;
+		TabIndex = 85, ;
+		ZOrderSet = 93, ;
+		Name = "Clabel42"
+
+
+	ADD OBJECT clabel41 AS clabel WITH ;
+		FontName = "MS Serif", ;
+		FontSize = 6, ;
+		Caption = "3", ;
+		Height = 12, ;
+		Left = 101, ;
+		Top = 239, ;
+		Width = 7, ;
+		TabIndex = 88, ;
+		ZOrderSet = 94, ;
+		Name = "Clabel41"
+
+
+	ADD OBJECT cformbutton11 AS cformbutton WITH ;
+		Top = 93, ;
+		Left = 708, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\address_book16.bmp", ;
+		Caption = "", ;
+		TabIndex = 56, ;
+		ToolTipText = "Литература ...", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 95, ;
+		Name = "Cformbutton11"
+
+
+	ADD OBJECT cformbutton12 AS cformbutton WITH ;
+		Top = 93, ;
+		Left = 679, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\cut16.bmp", ;
+		Caption = "", ;
+		TabIndex = 55, ;
+		ToolTipText = "Стереть", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 96, ;
+		Name = "Cformbutton12"
+
+
+	ADD OBJECT cformbutton13 AS cformbutton WITH ;
+		Top = 125, ;
+		Left = 332, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\address_book16.bmp", ;
+		Caption = "", ;
+		TabIndex = 40, ;
+		ToolTipText = "Литература ...", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 97, ;
+		Name = "Cformbutton13"
+
+
+	ADD OBJECT cformbutton14 AS cformbutton WITH ;
+		Top = 125, ;
+		Left = 304, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\cut16.bmp", ;
+		Caption = "", ;
+		TabIndex = 39, ;
+		ToolTipText = "Стереть", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 98, ;
+		Name = "Cformbutton14"
+
+
+	ADD OBJECT cformbutton15 AS cformbutton WITH ;
+		Top = 125, ;
+		Left = 708, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\address_book16.bmp", ;
+		Caption = "", ;
+		TabIndex = 58, ;
+		ToolTipText = "Литература ...", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 99, ;
+		Name = "Cformbutton15"
+
+
+	ADD OBJECT cformbutton16 AS cformbutton WITH ;
+		Top = 125, ;
+		Left = 679, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\cut16.bmp", ;
+		Caption = "", ;
+		TabIndex = 57, ;
+		ToolTipText = "Стереть", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 100, ;
+		Name = "Cformbutton16"
+
+
+	ADD OBJECT cformbutton17 AS cformbutton WITH ;
+		Top = 158, ;
+		Left = 332, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\address_book16.bmp", ;
+		Caption = "", ;
+		TabIndex = 42, ;
+		ToolTipText = "Литература ...", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 101, ;
+		Name = "Cformbutton17"
+
+
+	ADD OBJECT cformbutton18 AS cformbutton WITH ;
+		Top = 158, ;
+		Left = 304, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\cut16.bmp", ;
+		Caption = "", ;
+		TabIndex = 41, ;
+		ToolTipText = "Стереть", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 102, ;
+		Name = "Cformbutton18"
+
+
+	ADD OBJECT cformbutton19 AS cformbutton WITH ;
+		Top = 158, ;
+		Left = 708, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\address_book16.bmp", ;
+		Caption = "", ;
+		TabIndex = 60, ;
+		ToolTipText = "Литература ...", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 103, ;
+		Name = "Cformbutton19"
+
+
+	ADD OBJECT cformbutton20 AS cformbutton WITH ;
+		Top = 158, ;
+		Left = 679, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\cut16.bmp", ;
+		Caption = "", ;
+		TabIndex = 59, ;
+		ToolTipText = "Стереть", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 104, ;
+		Name = "Cformbutton20"
+
+
+	ADD OBJECT cformbutton21 AS cformbutton WITH ;
+		Top = 193, ;
+		Left = 332, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\address_book16.bmp", ;
+		Caption = "", ;
+		TabIndex = 44, ;
+		ToolTipText = "Литература ...", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 105, ;
+		Name = "Cformbutton21"
+
+
+	ADD OBJECT cformbutton22 AS cformbutton WITH ;
+		Top = 193, ;
+		Left = 304, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\cut16.bmp", ;
+		Caption = "", ;
+		TabIndex = 43, ;
+		ToolTipText = "Стереть", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 106, ;
+		Name = "Cformbutton22"
+
+
+	ADD OBJECT cformbutton23 AS cformbutton WITH ;
+		Top = 193, ;
+		Left = 708, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\address_book16.bmp", ;
+		Caption = "", ;
+		TabIndex = 62, ;
+		ToolTipText = "Литература ...", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 107, ;
+		Name = "Cformbutton23"
+
+
+	ADD OBJECT cformbutton24 AS cformbutton WITH ;
+		Top = 193, ;
+		Left = 679, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\cut16.bmp", ;
+		Caption = "", ;
+		TabIndex = 61, ;
+		ToolTipText = "Стереть", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 108, ;
+		Name = "Cformbutton24"
+
+
+	ADD OBJECT cformbutton25 AS cformbutton WITH ;
+		Top = 230, ;
+		Left = 332, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\address_book16.bmp", ;
+		Caption = "", ;
+		TabIndex = 46, ;
+		ToolTipText = "Литература ...", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 109, ;
+		Name = "Cformbutton25"
+
+
+	ADD OBJECT cformbutton26 AS cformbutton WITH ;
+		Top = 230, ;
+		Left = 304, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\cut16.bmp", ;
+		Caption = "", ;
+		TabIndex = 45, ;
+		ToolTipText = "Стереть", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 110, ;
+		Name = "Cformbutton26"
+
+
+	ADD OBJECT cformbutton27 AS cformbutton WITH ;
+		Top = 230, ;
+		Left = 708, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\address_book16.bmp", ;
+		Caption = "", ;
+		TabIndex = 64, ;
+		ToolTipText = "Литература ...", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 111, ;
+		Name = "Cformbutton27"
+
+
+	ADD OBJECT cformbutton28 AS cformbutton WITH ;
+		Top = 230, ;
+		Left = 679, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\cut16.bmp", ;
+		Caption = "", ;
+		TabIndex = 63, ;
+		ToolTipText = "Стереть", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 112, ;
+		Name = "Cformbutton28"
+
+
+	ADD OBJECT cformbutton29 AS cformbutton WITH ;
+		Top = 262, ;
+		Left = 332, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\address_book16.bmp", ;
+		Caption = "", ;
+		TabIndex = 48, ;
+		ToolTipText = "Литература ...", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 113, ;
+		Name = "Cformbutton29"
+
+
+	ADD OBJECT cformbutton30 AS cformbutton WITH ;
+		Top = 262, ;
+		Left = 304, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\cut16.bmp", ;
+		Caption = "", ;
+		TabIndex = 47, ;
+		ToolTipText = "Стереть", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 114, ;
+		Name = "Cformbutton30"
+
+
+	ADD OBJECT cformbutton31 AS cformbutton WITH ;
+		Top = 262, ;
+		Left = 708, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\address_book16.bmp", ;
+		Caption = "", ;
+		TabIndex = 66, ;
+		ToolTipText = "Литература ...", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 115, ;
+		Name = "Cformbutton31"
+
+
+	ADD OBJECT cformbutton32 AS cformbutton WITH ;
+		Top = 262, ;
+		Left = 679, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\cut16.bmp", ;
+		Caption = "", ;
+		TabIndex = 65, ;
+		ToolTipText = "Стереть", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 116, ;
+		Name = "Cformbutton32"
+
+
+	ADD OBJECT cformbutton33 AS cformbutton WITH ;
+		Top = 336, ;
+		Left = 332, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\address_book16.bmp", ;
+		Caption = "", ;
+		TabIndex = 68, ;
+		ToolTipText = "Литература ...", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 117, ;
+		Name = "Cformbutton33"
+
+
+	ADD OBJECT cformbutton34 AS cformbutton WITH ;
+		Top = 336, ;
+		Left = 304, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\cut16.bmp", ;
+		Caption = "", ;
+		TabIndex = 67, ;
+		ToolTipText = "Стереть", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 118, ;
+		Name = "Cformbutton34"
+
+
+	ADD OBJECT cformbutton35 AS cformbutton WITH ;
+		Top = 375, ;
+		Left = 333, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\address_book16.bmp", ;
+		Caption = "", ;
+		TabIndex = 70, ;
+		ToolTipText = "Литература ...", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 119, ;
+		Name = "Cformbutton35"
+
+
+	ADD OBJECT cformbutton36 AS cformbutton WITH ;
+		Top = 375, ;
+		Left = 304, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\cut16.bmp", ;
+		Caption = "", ;
+		TabIndex = 69, ;
+		ToolTipText = "Стереть", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 120, ;
+		Name = "Cformbutton36"
+
+
+	ADD OBJECT cformbutton39 AS cformbutton WITH ;
+		Top = 295, ;
+		Left = 332, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\address_book16.bmp", ;
+		Caption = "", ;
+		TabIndex = 50, ;
+		ToolTipText = "Литература ...", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 121, ;
+		Name = "Cformbutton39"
+
+
+	ADD OBJECT cformbutton40 AS cformbutton WITH ;
+		Top = 295, ;
+		Left = 304, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\cut16.bmp", ;
+		Caption = "", ;
+		TabIndex = 49, ;
+		ToolTipText = "Стереть", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 122, ;
+		Name = "Cformbutton40"
+
+
+	ADD OBJECT btncomment AS cformbutton WITH ;
+		Top = 340, ;
+		Left = 708, ;
+		Height = 25, ;
+		Width = 25, ;
+		FontBold = .F., ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Picture = "..\..\common\bmp\paste16_h.bmp", ;
+		Caption = "", ;
+		TabIndex = 66, ;
+		ToolTipText = "Комментарии ...", ;
+		Visible = .T., ;
+		SpecialEffect = 2, ;
+		ForeColor = RGB(0,0,0), ;
+		ZOrderSet = 123, ;
+		Name = "btnComment"
+
+
+	ADD OBJECT txtp1 AS cformtextbox WITH ;
+		FontName = "MS Sans Serif", ;
+		Alignment = 1, ;
+		Height = 23, ;
+		InputMask = "", ;
+		Left = 139, ;
+		SpecialEffect = 0, ;
+		TabIndex = 1, ;
+		Top = 36, ;
+		Width = 110, ;
+		ZOrderSet = 124, ;
+		Name = "txtP1"
+
+
+	ADD OBJECT txtp3 AS cformtextbox WITH ;
+		FontName = "MS Sans Serif", ;
+		Alignment = 1, ;
+		Height = 23, ;
+		InputMask = "", ;
+		Left = 139, ;
+		SpecialEffect = 0, ;
+		TabIndex = 4, ;
+		Top = 94, ;
+		Width = 110, ;
+		ZOrderSet = 125, ;
+		Name = "txtP3"
+
+
+	ADD OBJECT txtp5 AS cformtextbox WITH ;
+		FontName = "MS Sans Serif", ;
+		Alignment = 1, ;
+		Height = 23, ;
+		InputMask = "", ;
+		Left = 139, ;
+		SpecialEffect = 0, ;
+		TabIndex = 7, ;
+		Top = 159, ;
+		Width = 110, ;
+		ZOrderSet = 126, ;
+		Name = "txtP5"
+
+
+	ADD OBJECT txtp7 AS cformtextbox WITH ;
+		FontName = "MS Sans Serif", ;
+		Alignment = 1, ;
+		Height = 23, ;
+		InputMask = "", ;
+		Left = 139, ;
+		SpecialEffect = 0, ;
+		TabIndex = 10, ;
+		Top = 231, ;
+		Width = 110, ;
+		ZOrderSet = 127, ;
+		Name = "txtP7"
+
+
+	ADD OBJECT txtp9 AS cformtextbox WITH ;
+		FontName = "MS Sans Serif", ;
+		Alignment = 1, ;
+		Height = 23, ;
+		InputMask = "", ;
+		Left = 534, ;
+		SpecialEffect = 0, ;
+		TabIndex = 13, ;
+		Top = 36, ;
+		Width = 87, ;
+		ZOrderSet = 128, ;
+		Name = "txtP9"
+
+
+	ADD OBJECT txtp10 AS cformtextbox WITH ;
+		FontName = "MS Sans Serif", ;
+		Alignment = 1, ;
+		Height = 23, ;
+		InputMask = "", ;
+		Left = 534, ;
+		SpecialEffect = 0, ;
+		TabIndex = 15, ;
+		Top = 64, ;
+		Width = 87, ;
+		ZOrderSet = 129, ;
+		Name = "txtP10"
+
+
+	ADD OBJECT txtp11 AS cformtextbox WITH ;
+		FontName = "MS Sans Serif", ;
+		Alignment = 1, ;
+		Height = 23, ;
+		InputMask = "", ;
+		Left = 534, ;
+		SpecialEffect = 0, ;
+		TabIndex = 17, ;
+		Top = 94, ;
+		Width = 87, ;
+		ZOrderSet = 130, ;
+		Name = "txtP11"
+
+
+	ADD OBJECT txtp12 AS cformtextbox WITH ;
+		FontName = "MS Sans Serif", ;
+		Alignment = 1, ;
+		Height = 23, ;
+		InputMask = "", ;
+		Left = 534, ;
+		SpecialEffect = 0, ;
+		TabIndex = 19, ;
+		Top = 126, ;
+		Width = 87, ;
+		ZOrderSet = 131, ;
+		Name = "txtP12"
+
+
+	ADD OBJECT txtp13 AS cformtextbox WITH ;
+		FontName = "MS Sans Serif", ;
+		Alignment = 1, ;
+		Height = 23, ;
+		InputMask = "", ;
+		Left = 534, ;
+		SpecialEffect = 0, ;
+		TabIndex = 21, ;
+		Top = 159, ;
+		Width = 87, ;
+		ZOrderSet = 132, ;
+		Name = "txtP13"
+
+
+	ADD OBJECT txtp14 AS cformtextbox WITH ;
+		FontName = "MS Sans Serif", ;
+		Alignment = 1, ;
+		Height = 23, ;
+		InputMask = "", ;
+		Left = 504, ;
+		SpecialEffect = 0, ;
+		TabIndex = 23, ;
+		Top = 194, ;
+		Width = 117, ;
+		ZOrderSet = 133, ;
+		Name = "txtP14"
+
+
+	ADD OBJECT txtp15 AS cformtextbox WITH ;
+		FontName = "MS Sans Serif", ;
+		Alignment = 1, ;
+		Height = 23, ;
+		InputMask = "", ;
+		Left = 504, ;
+		SpecialEffect = 0, ;
+		TabIndex = 25, ;
+		Top = 231, ;
+		Width = 117, ;
+		ZOrderSet = 134, ;
+		Name = "txtP15"
+
+
+	ADD OBJECT txtp16 AS cformtextbox WITH ;
+		FontName = "MS Sans Serif", ;
+		Alignment = 1, ;
+		Height = 23, ;
+		InputMask = "", ;
+		Left = 504, ;
+		SpecialEffect = 0, ;
+		TabIndex = 27, ;
+		Top = 263, ;
+		Width = 117, ;
+		ZOrderSet = 135, ;
+		Name = "txtP16"
+
+
+	ADD OBJECT txtp17 AS cformtextbox WITH ;
+		FontName = "MS Sans Serif", ;
+		Alignment = 1, ;
+		Height = 23, ;
+		InputMask = "", ;
+		Left = 139, ;
+		SpecialEffect = 0, ;
+		TabIndex = 29, ;
+		Top = 295, ;
+		Width = 110, ;
+		ZOrderSet = 136, ;
+		Name = "txtP17"
+
+
+	ADD OBJECT edtres AS cformedit WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Enabled = .F., ;
+		Height = 23, ;
+		Left = 2, ;
+		Top = 413, ;
+		Width = 634, ;
+		ZOrderSet = 137, ;
+		Name = "edtRes"
+
+
+	ADD OBJECT txtc AS cformtextbox WITH ;
+		FontName = "MS Sans Serif", ;
+		Alignment = 1, ;
+		Height = 23, ;
+		InputMask = "", ;
+		Left = 600, ;
+		SpecialEffect = 0, ;
+		TabIndex = 1, ;
+		Top = 341, ;
+		Width = 105, ;
+		ZOrderSet = 138, ;
+		Name = "txtC"
+
+
+	ADD OBJECT ogs AS coptiongroup WITH ;
+		ButtonCount = 3, ;
+		Height = 29, ;
+		Left = 367, ;
+		SpecialEffect = 0, ;
+		Top = 308, ;
+		Width = 365, ;
+		ZOrderSet = 139, ;
+		Name = "ogS", ;
+		Option1.FontName = "MS Sans Serif", ;
+		Option1.Caption = "Не определена", ;
+		Option1.Left = 5, ;
+		Option1.Top = 6, ;
+		Option1.AutoSize = .T., ;
+		Option1.Name = "Option1", ;
+		Option2.FontName = "MS Sans Serif", ;
+		Option2.Caption = "Полностью растворим", ;
+		Option2.Left = 102, ;
+		Option2.Top = 6, ;
+		Option2.AutoSize = .T., ;
+		Option2.Name = "Option2", ;
+		Option3.Caption = "", ;
+		Option3.Height = 17, ;
+		Option3.Left = 237, ;
+		Option3.Top = 5, ;
+		Option3.Width = 61, ;
+		Option3.Name = "Option3"
+
+
+	ADD OBJECT txts AS cformtextbox WITH ;
+		FontName = "MS Sans Serif", ;
+		Alignment = 1, ;
+		Height = 23, ;
+		InputMask = "99999999.999", ;
+		Left = 618, ;
+		SpecialEffect = 0, ;
+		TabIndex = 1, ;
+		Top = 311, ;
+		Width = 79, ;
+		ZOrderSet = 140, ;
+		Name = "txtS"
+
+
+	ADD OBJECT clabel49 AS clabel WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		WordWrap = .T., ;
+		Caption = "[мг/л]", ;
+		Height = 15, ;
+		Left = 698, ;
+		Top = 316, ;
+		Width = 30, ;
+		TabIndex = 78, ;
+		ZOrderSet = 141, ;
+		Name = "Clabel49"
+
+
+	ADD OBJECT clabel51 AS clabel WITH ;
+		FontName = "MS Sans Serif", ;
+		FontSize = 8, ;
+		Caption = "ПДКр.з. [мг/м3]", ;
+		Height = 15, ;
+		Left = 366, ;
+		Top = 372, ;
+		TabIndex = 94, ;
+		ZOrderSet = 27, ;
+		Name = "Clabel51"
+
+
+	ADD OBJECT txtpdkrz AS cformtextbox WITH ;
+		FontName = "MS Sans Serif", ;
+		Alignment = 1, ;
+		Height = 23, ;
+		InputMask = "", ;
+		Left = 600, ;
+		SpecialEffect = 0, ;
+		TabIndex = 17, ;
+		Top = 368, ;
+		Width = 105, ;
+		ZOrderSet = 130, ;
+		Name = "txtPDKRZ"
+
+
+	PROCEDURE recompw
+		Local i, nCounter, P20, cComStr, nTmp, nSum, cLgW
+
+		  nCounter = 0
+		  nSum = 0
+		  For i = 1 To 19
+		    cComStr = "THISFORM.cmbP"+Alltrim(Str(i,2,0))+".ListIndex"
+		    nTmp = &cComStr
+		    If (nTmp != 0)
+		      nCounter = nCounter + 1
+		      nSum = nSum + nTmp
+		    EndIf
+		  Next i
+		  
+		  If (nCounter >= 1)
+		    && Считаем показатель информационного обеспечения 
+		    Do Case
+		      Case (nCounter < 6)
+		        P20 = 1
+		      Case (nCounter >= 6).And.(nCounter <= 8)
+		        P20 = 2
+		      Case (nCounter >= 9).And.(nCounter <= 10)
+		        P20 = 3
+		      Case (nCounter >= 11)
+		        P20 = 4
+		    EndCase
+		    nSum = nSum + P20
+		    nCounter = nCounter + 1
+
+		    With (THISFORM)
+		      .m_nX = nSum/nCounter 
+		      .m_nZ = 4*.m_nX/3-1/3
+		      Do Case
+		        Case (.m_nZ >= 1).And.(.m_nZ < 2)
+		          .m_nLgW = 4 - 4/.m_nZ
+		          cLgW = "Lg(Wi) = 4 - 4/Zi ="
+		        Case (.m_nZ >= 2).And.(.m_nZ < 4)
+		          .m_nLgW = .m_nZ
+		          cLgW = "Lg(Wi) = Zi ="
+		        Case (.m_nZ >= 4).And.(.m_nZ <= 5)
+		          .m_nLgW = 2 + 4/(6-.m_nZ)
+		          cLgW = "Lg(Wi) = 2 + 4/(6-Zi) ="
+		        Otherwise
+		          .m_nLgW = 0
+		          cLgW = "Lg(Wi) ="
+		      EndCase
+		      .m_nW = 10**.m_nLgW
+		      
+		      cText = "Определено параметров: "+Alltrim(Str(nCounter-1,2,0))+;
+		              "; Kинформ = "+Alltrim(Str(P20,1,0))+"; Xi = "+Alltrim(Str(.m_nX, 10, 3))+;
+		              ";       Zi = "+Alltrim(Str(.m_nZ, 10, 3))+;
+		              ";         "+cLgW+" "+Alltrim(Str(.m_nLgW, 10, 3))+;
+		              ";         Wi = "+Alltrim(Str(.m_nW, 10, 3))
+		    EndWith
+		  Else  
+		    With (THISFORM)
+		      .m_nX = 0 
+		      .m_nZ = 0
+		      .m_nLgW = 0
+		      .m_nW = 0
+		      cText = "Не достаточно данных для расчета."
+		    EndWith
+		  EndIf
+
+		  THISFORM.edtRes.Value = cText
+	ENDPROC
+
+
+	PROCEDURE Init
+		Local cComStr, i
+
+		  DoDefault()
+		  
+		  With (THISFORM)
+		    .txtName.Value = Alltrim(COMPS.name)
+		    .arP18(1) = "Образование более токсичных продуктов (в т. ч. обладающих отдаленными эффектами или новыми свойствами)"
+		    .arP18(2) = "Образование продуктов с более выраженным влиянием других критериев опасности"
+		    .arP18(3) = "Образование продуктов, токсичность которых близка к токсичности исходного вещества"
+		    .arP18(4) = "Образование менее токсичных продуктов"
+		    .SetAll("RowSourceType", 1, "CFormCombobox")
+		    .cmbP18.RowSourceType = 5
+		    .cmbP18.RowSource = "THISFORM.arP18"
+		    .cmbP1.RowSource = "<1,1-10,10.1-100,>100"
+		    .cmbP2.RowSource = "1,2,3 ,Не установлен"
+		    .cmbP3.RowSource = "<0.01,0.01-0.1,0.11-1,>1"
+		    .cmbP4.RowSource = "1,2,3,4"
+		    .cmbP5.RowSource = "<0.001,0.001-0.01,0.011-0.1,>0.1"
+		    .cmbP6.RowSource = "1,2,3,4"
+		    .cmbP7.RowSource = "<0.01,0.01-0.1,0.11-1,>1"
+		    .cmbP8.RowSource = "1,2,3,4"
+		    .cmbP9.RowSource = "<0.01,0.01-1,1.1-10,>10"
+		    .cmbP10.RowSource = ">5,5-2,1.9-1,<1"
+		    .cmbP11.RowSource = ">5,5-2,1.9-1,<1"
+		    .cmbP12.RowSource = ">7,7-3.9,3.8-1.6,<1.6"
+		    .cmbP13.RowSource = ">4,4-2,1.9-0,<0"
+		    .cmbP14.RowSource = "<15,15-150,151-5000,>5000"
+		    .cmbP15.RowSource = "<500,500-5000,5001-50000,>50000"
+		    .cmbP16.RowSource = "<1,1-5,5.1-100,>100"
+		*    .cmbP17.RowSource = "<0.1,0.1-0.6,0.6-0.9,>0.9"
+		    .cmbP17.RowSource = "<0.1,0.1-1,1-10,>10"
+		    .cmbP19.RowSource = "Выраженное накопление во всех звеньях,"+;
+		                        "Накопление в нескольких звеньях,"+;
+		                        "Накопление в одном из звеньев,"+;
+		                        "Нет накопления"
+		    .txtP1.ControlSource = "PARAMS.v1"
+		    .txtP3.ControlSource = "PARAMS.v3"
+		    .txtP5.ControlSource = "PARAMS.v5"
+		    .txtP7.ControlSource = "PARAMS.v7"
+		    .txtP9.ControlSource = "PARAMS.v9"
+		    .txtP10.ControlSource = "PARAMS.v10"
+		    .txtP11.ControlSource = "PARAMS.v11"
+		    .txtP12.ControlSource = "PARAMS.v12"
+		    .txtP13.ControlSource = "PARAMS.v13"
+		    .txtP14.ControlSource = "PARAMS.v14"
+		    .txtP15.ControlSource = "PARAMS.v15"
+		    .txtP16.ControlSource = "PARAMS.v16"
+		    .txtP17.ControlSource = "PARAMS.v17"
+		    .txtPDKRZ.ControlSource = "PARAMS.pdk_rz"
+		  EndWith
+		  
+		  If (!Seek(COMPS.id, "PARAMS", "ID_COMP"))
+		    Insert InTo PARAMS (id_comp) Values (COMPS.id)
+		  Else
+		    For i = 1 To 19
+		      cComStr = "THISFORM.cmbP"+Alltrim(Str(i,2,0))+".ListIndex = PARAMS.p"+Alltrim(Str(i,2,0))
+		      &cComStr
+		    Next i
+		  EndIf
+
+		  With (THISFORM)
+		    If (PARAMS.was_s)
+		      If (PARAMS.s < 0) 
+		        .ogS.Value = 2
+		        .txtS.Enabled = .F.
+		      Else
+		        .ogS.Value = 3
+		        .txtS.Enabled = .T.
+		        .txtS.ControlSource = "PARAMS.s"
+		      EndIf
+		    Else
+		      .ogS.Value = 1
+		      .txtS.Enabled = .F.
+		    EndIf
+		    .txtC.ControlSource = "PARAMS.c"
+		  EndWith
+		  
+		  THISFORM.RecompW
+		  THISFORM.cmbP1.SetFocus
+		  
+	ENDPROC
+
+
+	PROCEDURE cformbutton4.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton4.Click
+		Local bOk
+
+		  bOk = .T.
+		  If (PARAMS.b9 = 0)
+		    If (MessageBox("Ссылка на источник сведений отсутствует. Установить?",36, "Внимание")!=6)
+		      bOk = .F.
+		    EndIf
+		  EndIf
+		  If (bOk)
+		    m.frmBooks = CreateObject("CFormBooks", 9)
+		    m.frmBooks.Show
+		  EndIf
+	ENDPROC
+
+
+	PROCEDURE cformbutton3.Click
+
+		  If (MessageBox("Стереть значение параметра [9]?", 36, "Внимание") = 6)
+		    THISFORM.cmbP9.ListIndex = 0
+		    Replace p9 With 0,;
+		            v9 With 0,;
+		            b9 With 0,;
+		            s9 With "" In PARAMS
+		    THISFORM.txtP9.Refresh
+		    THISFORM.cmbP9.SetFocus
+		    THISFORM.RecompW()
+		  EndIf
+		  
+	ENDPROC
+
+
+	PROCEDURE cformbutton3.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton2.Click
+		Local bOk
+
+		  bOk = .T.
+		  If (PARAMS.b1 = 0)
+		    If (MessageBox("Ссылка на источник сведений отсутствует. Установить?",36, "Внимание")!=6)
+		      bOk = .F.
+		    EndIf
+		  EndIf
+		  If (bOk)
+		    m.frmBooks = CreateObject("CFormBooks", 1)
+		    m.frmBooks.Show
+		  EndIf
+	ENDPROC
+
+
+	PROCEDURE cformbutton2.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton1.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton1.Click
+
+		  If (MessageBox("Стереть значение параметра [1]?", 36, "Внимание") = 6)
+		    THISFORM.cmbP1.ListIndex = 0
+		    Replace p1 With 0,;
+		            v1 With 0,;
+		            b1 With 0,;
+		            s1 With "" In PARAMS
+		    THISFORM.txtP1.Refresh
+		    THISFORM.cmbP1.SetFocus
+		    THISFORM.RecompW()
+		  EndIf
+		  
+	ENDPROC
+
+
+	PROCEDURE cformbutton5.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton5.Click
+		Local bOk
+
+		  bOk = .T.
+		  If (PARAMS.b2 = 0)
+		    If (MessageBox("Ссылка на источник сведений отсутствует. Установить?",36, "Внимание")!=6)
+		      bOk = .F.
+		    EndIf
+		  EndIf
+		  If (bOk)
+		    m.frmBooks = CreateObject("CFormBooks", 2)
+		    m.frmBooks.Show
+		  EndIf
+	ENDPROC
+
+
+	PROCEDURE cformbutton6.Click
+
+		  If (MessageBox("Стереть значение параметра [2]?", 36, "Внимание") = 6)
+		    THISFORM.cmbP2.ListIndex = 0
+		    Replace p2 With 0,;
+		            b2 With 0,;
+		            s2 With "" In PARAMS
+		    THISFORM.cmbP2.SetFocus
+		    THISFORM.RecompW()
+		  EndIf
+		  
+	ENDPROC
+
+
+	PROCEDURE cformbutton6.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton7.Click
+		Local bOk
+
+		  bOk = .T.
+		  If (PARAMS.b10 = 0)
+		    If (MessageBox("Ссылка на источник сведений отсутствует. Установить?",36, "Внимание")!=6)
+		      bOk = .F.
+		    EndIf
+		  EndIf
+		  If (bOk)
+		    m.frmBooks = CreateObject("CFormBooks", 10)
+		    m.frmBooks.Show
+		  EndIf
+	ENDPROC
+
+
+	PROCEDURE cformbutton7.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton8.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton8.Click
+
+		  If (MessageBox("Стереть значение параметра [10]?", 36, "Внимание") = 6)
+		    THISFORM.cmbP10.ListIndex = 0
+		    Replace p10 With 0,;
+		            v10 With 0,;
+		            b10 With 0,;
+		            s10 With "" In PARAMS
+		    THISFORM.txtP10.Refresh
+		    THISFORM.cmbP10.SetFocus
+		    THISFORM.RecompW()
+		  EndIf
+		  
+	ENDPROC
+
+
+	PROCEDURE btnok.Click
+		Local cComStr, i
+
+		  DoDefault()
+
+		  For i = 1 To 19
+		    cComStr = "Replace p"+Alltrim(Str(i,2,0))+" With THISFORM.cmbP"+Alltrim(Str(i,2,0))+".ListIndex In PARAMS"
+		    &cComStr
+		  Next i
+
+		  If (THISFORM.m_nW > 0)
+		    Replace is_params With .T.,;
+		            x With THISFORM.m_nX,;
+		            z With THISFORM.m_nZ,;
+		            lgw With THISFORM.m_nLgW,;
+		            w With THISFORM.m_nW In COMPS
+		  EndIf
+
+		  THISFORM.Release
+		  
+	ENDPROC
+
+
+	PROCEDURE btnok.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton9.Click
+		Local bOk
+
+		  bOk = .T.
+		  If (PARAMS.b3 = 0)
+		    If (MessageBox("Ссылка на источник сведений отсутствует. Установить?",36, "Внимание")!=6)
+		      bOk = .F.
+		    EndIf
+		  EndIf
+		  If (bOk)
+		    m.frmBooks = CreateObject("CFormBooks", 3)
+		    m.frmBooks.Show
+		  EndIf
+	ENDPROC
+
+
+	PROCEDURE cformbutton9.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton10.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton10.Click
+
+		  If (MessageBox("Стереть значение параметра [3]?", 36, "Внимание") = 6)
+		    THISFORM.cmbP3.ListIndex = 0
+		    Replace p3 With 0,;
+		            v3 With 0,;
+		            b3 With 0,;
+		            s3 With "" In PARAMS
+		    THISFORM.txtP3.Refresh
+		    THISFORM.cmbP3.SetFocus
+		    THISFORM.RecompW()
+		  EndIf
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp1.Valid
+
+		  DoDefault()
+		  
+		  THISFORM.RecompW()
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp1.GotFocus
+
+		  DoDefault()
+		  
+		  THISFORM.m_oCurCombo = THIS
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp2.Valid
+
+		  DoDefault()
+		  
+		  THISFORM.RecompW()
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp2.GotFocus
+
+		  DoDefault()
+		  
+		  THISFORM.m_oCurCombo = THIS
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp3.Valid
+
+		  DoDefault()
+		  
+		  THISFORM.RecompW()
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp3.GotFocus
+
+		  DoDefault()
+		  
+		  THISFORM.m_oCurCombo = THIS
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp4.Valid
+
+		  DoDefault()
+		  
+		  THISFORM.RecompW()
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp4.GotFocus
+
+		  DoDefault()
+		  
+		  THISFORM.m_oCurCombo = THIS
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp15.Valid
+
+		  DoDefault()
+		  
+		  THISFORM.RecompW()
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp15.GotFocus
+
+		  DoDefault()
+		  
+		  THISFORM.m_oCurCombo = THIS
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp14.Valid
+
+		  DoDefault()
+		  
+		  THISFORM.RecompW()
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp14.GotFocus
+
+		  DoDefault()
+		  
+		  THISFORM.m_oCurCombo = THIS
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp13.Valid
+
+		  DoDefault()
+		  
+		  THISFORM.RecompW()
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp13.GotFocus
+
+		  DoDefault()
+		  
+		  THISFORM.m_oCurCombo = THIS
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp12.Valid
+
+		  DoDefault()
+		  
+		  THISFORM.RecompW()
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp12.GotFocus
+
+		  DoDefault()
+		  
+		  THISFORM.m_oCurCombo = THIS
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp11.Valid
+
+		  DoDefault()
+		  
+		  THISFORM.RecompW()
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp11.GotFocus
+
+		  DoDefault()
+		  
+		  THISFORM.m_oCurCombo = THIS
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp10.Valid
+
+		  DoDefault()
+		  
+		  THISFORM.RecompW()
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp10.GotFocus
+
+		  DoDefault()
+		  
+		  THISFORM.m_oCurCombo = THIS
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp9.Valid
+
+		  DoDefault()
+		  
+		  THISFORM.RecompW()
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp9.GotFocus
+
+		  DoDefault()
+		  
+		  THISFORM.m_oCurCombo = THIS
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp8.Valid
+
+		  DoDefault()
+		  
+		  THISFORM.RecompW()
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp8.GotFocus
+
+		  DoDefault()
+		  
+		  THISFORM.m_oCurCombo = THIS
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp7.Valid
+
+		  DoDefault()
+		  
+		  THISFORM.RecompW()
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp7.GotFocus
+
+		  DoDefault()
+		  
+		  THISFORM.m_oCurCombo = THIS
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp6.Valid
+
+		  DoDefault()
+		  
+		  THISFORM.RecompW()
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp6.GotFocus
+
+		  DoDefault()
+		  
+		  THISFORM.m_oCurCombo = THIS
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp5.Valid
+
+		  DoDefault()
+		  
+		  THISFORM.RecompW()
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp5.GotFocus
+
+		  DoDefault()
+		  
+		  THISFORM.m_oCurCombo = THIS
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp19.Valid
+
+		  DoDefault()
+		  
+		  THISFORM.RecompW()
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp19.GotFocus
+
+		  DoDefault()
+		  
+		  THISFORM.m_oCurCombo = THIS
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp18.Valid
+
+		  DoDefault()
+		  
+		  THISFORM.RecompW()
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp18.GotFocus
+
+		  DoDefault()
+		  
+		  THISFORM.m_oCurCombo = THIS
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp17.Valid
+
+		  DoDefault()
+		  
+		  THISFORM.RecompW()
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp17.GotFocus
+
+		  DoDefault()
+		  
+		  THISFORM.m_oCurCombo = THIS
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp16.Valid
+
+		  DoDefault()
+		  
+		  THISFORM.RecompW()
+		  
+	ENDPROC
+
+
+	PROCEDURE cmbp16.GotFocus
+
+		  DoDefault()
+		  
+		  THISFORM.m_oCurCombo = THIS
+		  
+	ENDPROC
+
+
+	PROCEDURE cformbutton11.Click
+		Local bOk
+
+		  bOk = .T.
+		  If (PARAMS.b11 = 0)
+		    If (MessageBox("Ссылка на источник сведений отсутствует. Установить?",36, "Внимание")!=6)
+		      bOk = .F.
+		    EndIf
+		  EndIf
+		  If (bOk)
+		    m.frmBooks = CreateObject("CFormBooks", 11)
+		    m.frmBooks.Show
+		  EndIf
+	ENDPROC
+
+
+	PROCEDURE cformbutton11.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton12.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton12.Click
+
+		  If (MessageBox("Стереть значение параметра [11]?", 36, "Внимание") = 6)
+		    THISFORM.cmbP11.ListIndex = 0
+		    Replace p11 With 0,;
+		            v11 With 0,;
+		            b11 With 0,;
+		            s11 With "" In PARAMS
+		    THISFORM.txtP11.Refresh
+		    THISFORM.cmbP11.SetFocus
+		    THISFORM.RecompW()
+		  EndIf
+		  
+	ENDPROC
+
+
+	PROCEDURE cformbutton13.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton13.Click
+		Local bOk
+
+		  bOk = .T.
+		  If (PARAMS.b4 = 0)
+		    If (MessageBox("Ссылка на источник сведений отсутствует. Установить?",36, "Внимание")!=6)
+		      bOk = .F.
+		    EndIf
+		  EndIf
+		  If (bOk)
+		    m.frmBooks = CreateObject("CFormBooks", 4)
+		    m.frmBooks.Show
+		  EndIf
+	ENDPROC
+
+
+	PROCEDURE cformbutton14.Click
+
+		  If (MessageBox("Стереть значение параметра [4]?", 36, "Внимание") = 6)
+		    THISFORM.cmbP4.ListIndex = 0
+		    Replace p4 With 0,;
+		            b4 With 0,;
+		            s4 With "" In PARAMS
+		    THISFORM.cmbP4.SetFocus
+		    THISFORM.RecompW()
+		  EndIf
+		  
+	ENDPROC
+
+
+	PROCEDURE cformbutton14.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton15.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton15.Click
+		Local bOk
+
+		  bOk = .T.
+		  If (PARAMS.b12 = 0)
+		    If (MessageBox("Ссылка на источник сведений отсутствует. Установить?",36, "Внимание")!=6)
+		      bOk = .F.
+		    EndIf
+		  EndIf
+		  If (bOk)
+		    m.frmBooks = CreateObject("CFormBooks", 12)
+		    m.frmBooks.Show
+		  EndIf
+	ENDPROC
+
+
+	PROCEDURE cformbutton16.Click
+
+		  If (MessageBox("Стереть значение параметра [12]?", 36, "Внимание") = 6)
+		    THISFORM.cmbP12.ListIndex = 0
+		    Replace p12 With 0,;
+		            v12 With 0,;
+		            b12 With 0,;
+		            s12 With "" In PARAMS
+		    THISFORM.txtP12.Refresh
+		    THISFORM.cmbP12.SetFocus
+		    THISFORM.RecompW()
+		  EndIf
+		  
+	ENDPROC
+
+
+	PROCEDURE cformbutton16.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton17.Click
+		Local bOk
+
+		  bOk = .T.
+		  If (PARAMS.b5 = 0)
+		    If (MessageBox("Ссылка на источник сведений отсутствует. Установить?",36, "Внимание")!=6)
+		      bOk = .F.
+		    EndIf
+		  EndIf
+		  If (bOk)
+		    m.frmBooks = CreateObject("CFormBooks", 5)
+		    m.frmBooks.Show
+		  EndIf
+	ENDPROC
+
+
+	PROCEDURE cformbutton17.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton18.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton18.Click
+
+		  If (MessageBox("Стереть значение параметра [5]?", 36, "Внимание") = 6)
+		    THISFORM.cmbP5.ListIndex = 0
+		    Replace p5 With 0,;
+		            v5 With 0,;
+		            b5 With 0,;
+		            s5 With "" In PARAMS
+		    THISFORM.txtP5.Refresh
+		    THISFORM.cmbP5.SetFocus
+		    THISFORM.RecompW()
+		  EndIf
+		  
+	ENDPROC
+
+
+	PROCEDURE cformbutton19.Click
+		Local bOk
+
+		  bOk = .T.
+		  If (PARAMS.b13 = 0)
+		    If (MessageBox("Ссылка на источник сведений отсутствует. Установить?",36, "Внимание")!=6)
+		      bOk = .F.
+		    EndIf
+		  EndIf
+		  If (bOk)
+		    m.frmBooks = CreateObject("CFormBooks", 13)
+		    m.frmBooks.Show
+		  EndIf
+	ENDPROC
+
+
+	PROCEDURE cformbutton19.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton20.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton20.Click
+
+		  If (MessageBox("Стереть значение параметра [13]?", 36, "Внимание") = 6)
+		    THISFORM.cmbP13.ListIndex = 0
+		    Replace p13 With 0,;
+		            v13 With 0,;
+		            b13 With 0,;
+		            s13 With "" In PARAMS
+		    THISFORM.txtP13.Refresh
+		    THISFORM.cmbP13.SetFocus
+		    THISFORM.RecompW()
+		  EndIf
+		  
+	ENDPROC
+
+
+	PROCEDURE cformbutton21.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton21.Click
+		Local bOk
+
+		  bOk = .T.
+		  If (PARAMS.b6 = 0)
+		    If (MessageBox("Ссылка на источник сведений отсутствует. Установить?",36, "Внимание")!=6)
+		      bOk = .F.
+		    EndIf
+		  EndIf
+		  If (bOk)
+		    m.frmBooks = CreateObject("CFormBooks", 6)
+		    m.frmBooks.Show
+		  EndIf
+	ENDPROC
+
+
+	PROCEDURE cformbutton22.Click
+
+		  If (MessageBox("Стереть значение параметра [6]?", 36, "Внимание") = 6)
+		    THISFORM.cmbP6.ListIndex = 0
+		    Replace p6 With 0,;
+		            b6 With 0,;
+		            s6 With "" In PARAMS
+		    THISFORM.cmbP6.SetFocus
+		    THISFORM.RecompW()
+		  EndIf
+		  
+	ENDPROC
+
+
+	PROCEDURE cformbutton22.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton23.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton23.Click
+		Local bOk
+
+		  bOk = .T.
+		  If (PARAMS.b14 = 0)
+		    If (MessageBox("Ссылка на источник сведений отсутствует. Установить?",36, "Внимание")!=6)
+		      bOk = .F.
+		    EndIf
+		  EndIf
+		  If (bOk)
+		    m.frmBooks = CreateObject("CFormBooks", 14)
+		    m.frmBooks.Show
+		  EndIf
+	ENDPROC
+
+
+	PROCEDURE cformbutton24.Click
+
+		  If (MessageBox("Стереть значение параметра [14]?", 36, "Внимание") = 6)
+		    THISFORM.cmbP14.ListIndex = 0
+		    Replace p14 With 0,;
+		            v14 With 0,;
+		            b14 With 0,;
+		            s14 With "" In PARAMS
+		    THISFORM.txtP14.Refresh
+		    THISFORM.cmbP14.SetFocus
+		    THISFORM.RecompW()
+		  EndIf
+		  
+	ENDPROC
+
+
+	PROCEDURE cformbutton24.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton25.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton25.Click
+		Local bOk
+
+		  bOk = .T.
+		  If (PARAMS.b7 = 0)
+		    If (MessageBox("Ссылка на источник сведений отсутствует. Установить?",36, "Внимание")!=6)
+		      bOk = .F.
+		    EndIf
+		  EndIf
+		  If (bOk)
+		    m.frmBooks = CreateObject("CFormBooks", 7)
+		    m.frmBooks.Show
+		  EndIf
+	ENDPROC
+
+
+	PROCEDURE cformbutton26.Click
+
+		  If (MessageBox("Стереть значение параметра [7]?", 36, "Внимание") = 6)
+		    THISFORM.cmbP7.ListIndex = 0
+		    Replace p7 With 0,;
+		            v7 With 0,;
+		            b7 With 0,;
+		            s7 With "" In PARAMS
+		    THISFORM.txtP7.Refresh
+		    THISFORM.cmbP7.SetFocus
+		    THISFORM.RecompW()
+		  EndIf
+		  
+	ENDPROC
+
+
+	PROCEDURE cformbutton26.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton27.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton27.Click
+		Local bOk
+
+		  bOk = .T.
+		  If (PARAMS.b15 = 0)
+		    If (MessageBox("Ссылка на источник сведений отсутствует. Установить?",36, "Внимание")!=6)
+		      bOk = .F.
+		    EndIf
+		  EndIf
+		  If (bOk)
+		    m.frmBooks = CreateObject("CFormBooks", 15)
+		    m.frmBooks.Show
+		  EndIf
+	ENDPROC
+
+
+	PROCEDURE cformbutton28.Click
+
+		  If (MessageBox("Стереть значение параметра [15]?", 36, "Внимание") = 6)
+		    THISFORM.cmbP15.ListIndex = 0
+		    Replace p15 With 0,;
+		            v15 With 0,;
+		            b15 With 0,;
+		            s15 With "" In PARAMS
+		    THISFORM.txtP15.Refresh
+		    THISFORM.cmbP15.SetFocus
+		    THISFORM.RecompW()
+		  EndIf
+		  
+	ENDPROC
+
+
+	PROCEDURE cformbutton28.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton29.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton29.Click
+		Local bOk
+
+		  bOk = .T.
+		  If (PARAMS.b8 = 0)
+		    If (MessageBox("Ссылка на источник сведений отсутствует. Установить?",36, "Внимание")!=6)
+		      bOk = .F.
+		    EndIf
+		  EndIf
+		  If (bOk)
+		    m.frmBooks = CreateObject("CFormBooks", 8)
+		    m.frmBooks.Show
+		  EndIf
+	ENDPROC
+
+
+	PROCEDURE cformbutton30.Click
+
+		  If (MessageBox("Стереть значение параметра [8]?", 36, "Внимание") = 6)
+		    THISFORM.cmbP8.ListIndex = 0
+		    Replace p8 With 0,;
+		            b8 With 0,;
+		            s8 With "" In PARAMS
+		    THISFORM.cmbP8.SetFocus
+		    THISFORM.RecompW()
+		  EndIf
+		  
+	ENDPROC
+
+
+	PROCEDURE cformbutton30.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton31.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton31.Click
+		Local bOk
+
+		  bOk = .T.
+		  If (PARAMS.b16 = 0)
+		    If (MessageBox("Ссылка на источник сведений отсутствует. Установить?",36, "Внимание")!=6)
+		      bOk = .F.
+		    EndIf
+		  EndIf
+		  If (bOk)
+		    m.frmBooks = CreateObject("CFormBooks", 16)
+		    m.frmBooks.Show
+		  EndIf
+	ENDPROC
+
+
+	PROCEDURE cformbutton32.Click
+
+		  If (MessageBox("Стереть значение параметра [16]?", 36, "Внимание") = 6)
+		    THISFORM.cmbP16.ListIndex = 0
+		    Replace p16 With 0,;
+		            v16 With 0,;
+		            b16 With 0,;
+		            s16 With "" In PARAMS
+		    THISFORM.txtP16.Refresh
+		    THISFORM.cmbP16.SetFocus
+		    THISFORM.RecompW()
+		  EndIf
+		  
+	ENDPROC
+
+
+	PROCEDURE cformbutton32.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton33.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton33.Click
+		Local bOk
+
+		  bOk = .T.
+		  If (PARAMS.b18 = 0)
+		    If (MessageBox("Ссылка на источник сведений отсутствует. Установить?",36, "Внимание")!=6)
+		      bOk = .F.
+		    EndIf
+		  EndIf
+		  If (bOk)
+		    m.frmBooks = CreateObject("CFormBooks", 18)
+		    m.frmBooks.Show
+		  EndIf
+	ENDPROC
+
+
+	PROCEDURE cformbutton34.Click
+
+		  If (MessageBox("Стереть значение параметра [18]?", 36, "Внимание") = 6)
+		    THISFORM.cmbP18.ListIndex = 0
+		    Replace p18 With 0,;
+		            b18 With 0,;
+		            s18 With "" In PARAMS
+		    THISFORM.cmbP18.SetFocus
+		    THISFORM.RecompW()
+		  EndIf
+		  
+	ENDPROC
+
+
+	PROCEDURE cformbutton34.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton35.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton35.Click
+		Local bOk
+
+		  bOk = .T.
+		  If (PARAMS.b19 = 0)
+		    If (MessageBox("Ссылка на источник сведений отсутствует. Установить?",36, "Внимание")!=6)
+		      bOk = .F.
+		    EndIf
+		  EndIf
+		  If (bOk)
+		    m.frmBooks = CreateObject("CFormBooks", 19)
+		    m.frmBooks.Show
+		  EndIf
+	ENDPROC
+
+
+	PROCEDURE cformbutton36.Click
+
+		  If (MessageBox("Стереть значение параметра [19]?", 36, "Внимание") = 6)
+		    THISFORM.cmbP19.ListIndex = 0
+		    Replace p19 With 0,;
+		            b19 With 0,;
+		            s19 With "" In PARAMS
+		    THISFORM.cmbP19.SetFocus
+		    THISFORM.RecompW()
+		  EndIf
+		  
+	ENDPROC
+
+
+	PROCEDURE cformbutton36.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton39.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE cformbutton39.Click
+		Local bOk
+
+		  bOk = .T.
+		  If (PARAMS.b17 = 0)
+		    If (MessageBox("Ссылка на источник сведений отсутствует. Установить?",36, "Внимание")!=6)
+		      bOk = .F.
+		    EndIf
+		  EndIf
+		  If (bOk)
+		    m.frmBooks = CreateObject("CFormBooks", 17)
+		    m.frmBooks.Show
+		  EndIf
+	ENDPROC
+
+
+	PROCEDURE cformbutton40.Click
+
+		  If (MessageBox("Стереть значение параметра [17]?", 36, "Внимание") = 6)
+		    THISFORM.cmbP17.ListIndex = 0
+		    Replace p17 With 0,;
+		            v17 With 0,;
+		            b17 With 0,;
+		            s17 With "" In PARAMS
+		    THISFORM.txtP17.Refresh
+		    THISFORM.cmbP17.SetFocus
+		    THISFORM.RecompW()
+		  EndIf
+		  
+	ENDPROC
+
+
+	PROCEDURE cformbutton40.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE btncomment.Click
+
+		  DoDefault()
+
+		  m.frmComment = CreateObject("CFormComment")
+		  m.frmComment.Show
+	ENDPROC
+
+
+	PROCEDURE btncomment.LostFocus
+		 
+		 
+	ENDPROC
+
+
+	PROCEDURE txtp1.Valid
+
+		  If (THIS.Value<0)
+		    =MessageBox("Значение не может быть отрицательным.", 64, "Ошибка пользователя.")
+		    Return .F.
+		  EndIf
+		  
+		  If (THIS.Value != 0)
+		    DO Case
+		      Case (THIS.Value<1)
+		       THISFORM.cmbP1.ListIndex = 1
+		      Case (THIS.Value>=1).And.(THIS.Value<=10)
+		        THISFORM.cmbP1.ListIndex = 2
+		      Case (THIS.Value>10).And.(THIS.Value<=100)
+		        THISFORM.cmbP1.ListIndex = 3
+		      OtherWise
+		        THISFORM.cmbP1.ListIndex = 4
+		    EndCase
+		    THISFORM.cmbP1.Refresh
+		    THISFORM.RecompW
+		  EndIf
+
+		  Return .T.
+	ENDPROC
+
+
+	PROCEDURE txtp3.Valid
+
+		  If (THIS.Value<0)
+		    =MessageBox("Значение не может быть отрицательным.", 64, "Ошибка пользователя.")
+		    Return .F.
+		  EndIf
+		  If (THIS.Value != 0)
+		    DO Case
+		      Case (THIS.Value<0.01)
+		        THISFORM.cmbP3.ListIndex = 1
+		      Case (THIS.Value>=0.01).And.(THIS.Value<=0.1)
+		        THISFORM.cmbP3.ListIndex = 2
+		      Case (THIS.Value>0.1).And.(THIS.Value<=1)
+		        THISFORM.cmbP3.ListIndex = 3
+		      OtherWise
+		        THISFORM.cmbP3.ListIndex = 4
+		    EndCase
+		    THISFORM.cmbP3.Refresh
+
+		    && Пересчитываем V10 (P10) через концентрацию
+		    If (PARAMS.s>0)
+		      Replace v10 With Log10(PARAMS.s/PARAMS.v3) In PARAMS
+		      DO Case
+		        Case (PARAMS.v10>5)
+		          THISFORM.cmbP10.ListIndex = 1
+		        Case (PARAMS.v10=<5).And.(PARAMS.v10>=2)
+		          THISFORM.cmbP10.ListIndex = 2
+		        Case (PARAMS.v10<2).And.(PARAMS.v10>=1)
+		          THISFORM.cmbP10.ListIndex = 3
+		        OtherWise
+		          THISFORM.cmbP10.ListIndex = 4
+		      EndCase
+		    EndIf
+		    THISFORM.txtP10.Refresh
+		    THISFORM.cmbP10.Refresh
+		    
+		    THISFORM.RecompW
+		  EndIf
+
+		  Return .T.
+	ENDPROC
+
+
+	PROCEDURE txtp5.Valid
+
+		  If (THIS.Value<0)
+		    =MessageBox("Значение не может быть отрицательным.", 64, "Ошибка пользователя.")
+		    Return .F.
+		  EndIf
+		  If (THIS.Value != 0)
+		    DO Case
+		      Case (THIS.Value<0.001)
+		        THISFORM.cmbP5.ListIndex = 1
+		      Case (THIS.Value>=0.001).And.(THIS.Value<=0.01)
+		        THISFORM.cmbP5.ListIndex = 2
+		      Case (THIS.Value>0.01).And.(THIS.Value<=0.1)
+		        THISFORM.cmbP5.ListIndex = 3
+		      OtherWise
+		        THISFORM.cmbP5.ListIndex = 4
+		    EndCase
+		    THISFORM.cmbP5.Refresh
+		    THISFORM.RecompW
+		  EndIf
+
+		  Return .T.
+	ENDPROC
+
+
+	PROCEDURE txtp7.Valid
+
+		  If (THIS.Value<0)
+		    =MessageBox("Значение не может быть отрицательным.", 64, "Ошибка пользователя.")
+		    Return .F.
+		  EndIf
+		  If (THIS.Value != 0)
+		    DO Case
+		      Case (THIS.Value<0.01)
+		        THISFORM.cmbP7.ListIndex = 1
+		      Case (THIS.Value>=0.01).And.(THIS.Value<=0.1)
+		        THISFORM.cmbP7.ListIndex = 2
+		      Case (THIS.Value>0.1).And.(THIS.Value<=1)
+		        THISFORM.cmbP7.ListIndex = 3
+		      OtherWise
+		        THISFORM.cmbP7.ListIndex = 4
+		    EndCase
+		    THISFORM.cmbP7.Refresh
+		    THISFORM.RecompW
+		  EndIf
+
+		  Return .T.
+	ENDPROC
+
+
+	PROCEDURE txtp9.Valid
+		  If (THIS.Value<0)
+		    =MessageBox("Значение не может быть отрицательным.", 64, "Ошибка пользователя.")
+		    Return .F.
+		  EndIf
+		  If (THIS.Value != 0)
+		    DO Case
+		      Case (THIS.Value<0.01)
+		        THISFORM.cmbP9.ListIndex = 1
+		      Case (THIS.Value>=0.01).And.(THIS.Value<=1)
+		        THISFORM.cmbP9.ListIndex = 2
+		      Case (THIS.Value>1).And.(THIS.Value<=10)
+		        THISFORM.cmbP9.ListIndex = 3
+		      OtherWise
+		        THISFORM.cmbP9.ListIndex = 4
+		    EndCase
+		    THISFORM.cmbP9.Refresh
+		    THISFORM.RecompW
+		  EndIf
+
+		  Return .T.
+	ENDPROC
+
+
+	PROCEDURE txtp10.Valid
+
+		  If (THIS.Value != 0)
+		    DO Case
+		      Case (THIS.Value>5)
+		        THISFORM.cmbP10.ListIndex = 1
+		      Case (THIS.Value=<5).And.(THIS.Value>=2)
+		        THISFORM.cmbP10.ListIndex = 2
+		      Case (THIS.Value<2).And.(THIS.Value>=1)
+		        THISFORM.cmbP10.ListIndex = 3
+		      OtherWise
+		        THISFORM.cmbP10.ListIndex = 4
+		    EndCase
+		    THISFORM.cmbP10.Refresh
+		    THISFORM.RecompW
+		  EndIf
+		  
+		  Return .T.
+	ENDPROC
+
+
+	PROCEDURE txtp11.Valid
+		  If (THIS.Value != 0)
+		    DO Case
+		      Case (THIS.Value>5)
+		        THISFORM.cmbP11.ListIndex = 1
+		      Case (THIS.Value=<5).And.(THIS.Value>=2)
+		        THISFORM.cmbP11.ListIndex = 2
+		      Case (THIS.Value<2).And.(THIS.Value>=1)
+		        THISFORM.cmbP11.ListIndex = 3
+		      OtherWise
+		        THISFORM.cmbP11.ListIndex = 4
+		    EndCase
+		    THISFORM.cmbP11.Refresh
+		    THISFORM.RecompW
+		  EndIf
+
+		  Return .T.
+	ENDPROC
+
+
+	PROCEDURE txtp12.Valid
+		  If (THIS.Value != 0)
+		    DO Case
+		      Case (THIS.Value>7)
+		        THISFORM.cmbP12.ListIndex = 1
+		      Case (THIS.Value=<7).And.(THIS.Value>=3.9)
+		        THISFORM.cmbP12.ListIndex = 2
+		      Case (THIS.Value<3.9).And.(THIS.Value>=1.6)
+		        THISFORM.cmbP12.ListIndex = 3
+		      OtherWise
+		        THISFORM.cmbP12.ListIndex = 4
+		    EndCase
+		    THISFORM.cmbP12.Refresh
+		    THISFORM.RecompW
+		  EndIf
+
+		  Return .T.
+	ENDPROC
+
+
+	PROCEDURE txtp13.Valid
+
+		If (THIS.Value != 0)
+		  DO Case
+		    Case (THIS.Value>4)
+		      THISFORM.cmbP13.ListIndex = 1
+		    Case (THIS.Value=<4).And.(THIS.Value>=2)
+		      THISFORM.cmbP13.ListIndex = 2
+		    Case (THIS.Value<2).And.(THIS.Value>=0)
+		      THISFORM.cmbP13.ListIndex = 3
+		    OtherWise
+		      THISFORM.cmbP13.ListIndex = 4
+		  EndCase
+		  THISFORM.cmbP13.Refresh
+		  THISFORM.RecompW
+		EndIf
+
+		Return .T.
+	ENDPROC
+
+
+	PROCEDURE txtp14.Valid
+
+		  If (THIS.Value<0)
+		    =MessageBox("Значение не может быть отрицательным.", 64, "Ошибка пользователя.")
+		    Return .F.
+		  EndIf
+		  If (THIS.Value != 0)
+		    DO Case
+		      Case (THIS.Value<15)
+		        THISFORM.cmbP14.ListIndex = 1
+		      Case (THIS.Value>=15).And.(THIS.Value<=150)
+		        THISFORM.cmbP14.ListIndex = 2
+		      Case (THIS.Value>150).And.(THIS.Value<=5000)
+		        THISFORM.cmbP14.ListIndex = 3
+		      OtherWise
+		        THISFORM.cmbP14.ListIndex = 4
+		    EndCase
+		    THISFORM.cmbP14.Refresh
+		    THISFORM.RecompW
+		  EndIf
+
+		  Return .T.
+	ENDPROC
+
+
+	PROCEDURE txtp15.Valid
+		  If (THIS.Value<0)
+		    =MessageBox("Значение не может быть отрицательным.", 64, "Ошибка пользователя.")
+		    Return .F.
+		  EndIf
+		  If (THIS.Value != 0)
+		    DO Case
+		      Case (THIS.Value<500)
+		        THISFORM.cmbP15.ListIndex = 1
+		      Case (THIS.Value>=500).And.(THIS.Value<=5000)
+		        THISFORM.cmbP15.ListIndex = 2
+		      Case (THIS.Value>5000).And.(THIS.Value<=50000)
+		        THISFORM.cmbP15.ListIndex = 3
+		      OtherWise
+		        THISFORM.cmbP15.ListIndex = 4
+		    EndCase
+		    THISFORM.cmbP15.Refresh
+		    THISFORM.RecompW
+		  EndIf
+
+		  Return .T.
+	ENDPROC
+
+
+	PROCEDURE txtp16.Valid
+
+		  If (THIS.Value<0)
+		    =MessageBox("Значение не может быть отрицательным.", 64, "Ошибка пользователя.")
+		    Return .F.
+		  EndIf
+		  If (THIS.Value != 0)
+		    DO Case
+		      Case (THIS.Value<1)
+		        THISFORM.cmbP16.ListIndex = 1
+		      Case (THIS.Value>=1).And.(THIS.Value<=5)
+		        THISFORM.cmbP16.ListIndex = 2
+		      Case (THIS.Value>5).And.(THIS.Value<=100)
+		        THISFORM.cmbP16.ListIndex = 3
+		      OtherWise
+		        THISFORM.cmbP16.ListIndex = 4
+		    EndCase
+		    THISFORM.cmbP16.Refresh
+		    THISFORM.RecompW
+		  EndIf
+
+		  Return .T.
+	ENDPROC
+
+
+	PROCEDURE txtp17.Valid
+
+		  If (THIS.Value<0)
+		    =MessageBox("Значение не может быть отрицательным.", 64, "Ошибка пользователя.")
+		    Return .F.
+		  EndIf
+		  If (THIS.Value != 0)
+		    DO Case
+		      Case (THIS.Value<0.1)
+		        THISFORM.cmbP17.ListIndex = 1
+		      Case (THIS.Value>=0.1).And.(THIS.Value<=1)
+		        THISFORM.cmbP17.ListIndex = 2
+		      Case (THIS.Value>1).And.(THIS.Value<=10)
+		        THISFORM.cmbP17.ListIndex = 3
+		      OtherWise
+		        THISFORM.cmbP17.ListIndex = 4
+		    EndCase
+		    THISFORM.cmbP17.Refresh
+		    THISFORM.RecompW
+		  EndIf
+
+		  Return .T.
+	ENDPROC
+
+
+	PROCEDURE txtc.Valid
+
+		  If (THIS.Value<0)
+		    =MessageBox("Значение не может быть отрицательным.", 64, "Ошибка пользователя.")
+		    Return .F.
+		  EndIf
+		  
+		  If (THIS.Value != 0)
+		    If (PARAMS.v7 != 0)
+		*      If (Log(PARAMS.c/PARAMS.v7) > 0)
+		        Replace v12 With Log10(PARAMS.c/PARAMS.v7) In PARAMS
+		        THISFORM.txtP12.Refresh
+		        DO Case
+		          Case (THISFORM.txtP12.Value>7)
+		            THISFORM.cmbP12.ListIndex = 1
+		          Case (THISFORM.txtP12.Value=<7).And.(THISFORM.txtP12.Value>=3.9)
+		            THISFORM.cmbP12.ListIndex = 2
+		          Case (THISFORM.txtP12.Value<3.9).And.(THISFORM.txtP12.Value>=1.6)
+		            THISFORM.cmbP12.ListIndex = 3
+		          OtherWise
+		            THISFORM.cmbP12.ListIndex = 4
+		        EndCase
+		        THISFORM.cmbP12.Refresh
+		        THISFORM.RecompW
+		*      EndIf
+		    EndIf  
+		    If (PARAMS.pdk_rz != 0)
+		        Replace v11 With Log10(PARAMS.c/PARAMS.pdk_rz) In PARAMS
+		        THISFORM.txtP11.Refresh
+			    DO Case
+			      Case (THISFORM.txtP11.Value>5)
+			        THISFORM.cmbP11.ListIndex = 1
+			      Case (THISFORM.txtP11.Value=<5).And.(THISFORM.txtP11.Value>=2)
+			        THISFORM.cmbP11.ListIndex = 2
+			      Case (THISFORM.txtP11.Value<2).And.(THISFORM.txtP11.Value>=1)
+			        THISFORM.cmbP11.ListIndex = 3
+			      OtherWise
+			        THISFORM.cmbP11.ListIndex = 4
+		        EndCase
+		        THISFORM.cmbP11.Refresh
+		        THISFORM.RecompW
+		    EndIf
+		  Else
+		    THISFORM.cmbP11.ListIndex = 0
+		    THISFORM.cmbP12.ListIndex = 0
+		    Replace p11 With 0,;
+		            v11 With 0,;
+		            b11 With 0,;
+		            s11 With "",;
+		            p12 With 0,;
+		            v12 With 0,;
+		            b12 With 0,;
+		            s12 With "" In PARAMS
+		    THISFORM.txtP11.Refresh
+		    THISFORM.txtP12.Refresh
+		    THISFORM.RecompW
+		  EndIf
+
+		  Return .T.
+		  
+	ENDPROC
+
+
+	PROCEDURE ogs.InteractiveChange
+
+		  DoDefault()
+		  
+		  With (THISFORM)
+		    If (THIS.Value = 1)
+		      Replace was_s With .F. In PARAMS
+		      .txtS.Enabled = .F.
+		      THISFORM.cmbP10.ListIndex = 0
+		      Replace p10 With 0,;
+		              v10 With 0,;
+		              b10 With 0,;
+		              s10 With "" In PARAMS
+		      .txtP10.Refresh
+		    Else
+		      If (THIS.Value = 2)
+		        Replace was_s With .T. In PARAMS
+		        Replace s With -1 In PARAMS
+		        Replace p10 With 1,;
+		                v10 With 0 In PARAMS
+		        THISFORM.cmbP10.ListIndex = 1
+		        .txtS.Enabled = .F.
+		      Else
+		        Replace was_s With .T.,;
+		                PARAMS.s With 0,;
+		                v10 With 0 In PARAMS
+		        THISFORM.cmbP10.ListIndex = 4
+		        .txtS.Enabled = .T.
+		        .txtS.ControlSource = "PARAMS.s"
+		        .txtS.Refresh
+		        .txtS.SetFocus
+		      EndIf
+		    EndIf
+		    .RecompW()
+		    .txtP10.Refresh
+		    .cmbP10.Refresh
+		  EndWith
+	ENDPROC
+
+
+	PROCEDURE txts.Valid
+
+		  If (THIS.Value<0)
+		    =MessageBox("Значение не может быть отрицательным.", 64, "Ошибка пользователя.")
+		    Return .F.
+		  EndIf
+		  
+		  If (THIS.Value != 0)
+		    If (PARAMS.v3 != 0)
+		*!!!!      If (Log(PARAMS.v3/PARAMS.s)>0)
+		        If (PARAMS.s>0)
+		          Replace v10 With Log10(PARAMS.s/PARAMS.v3) In PARAMS
+		          DO Case
+		            Case (PARAMS.v10>5)
+		              THISFORM.cmbP10.ListIndex = 1
+		            Case (PARAMS.v10=<5).And.(PARAMS.v10>=2)
+		              THISFORM.cmbP10.ListIndex = 2
+		            Case (PARAMS.v10<2).And.(PARAMS.v10>=1)
+		              THISFORM.cmbP10.ListIndex = 3
+		            OtherWise
+		              THISFORM.cmbP10.ListIndex = 4
+		          EndCase
+		        Else
+		          Replace v10 With 0,;
+		                  p10 With 4 In PARAMS
+		        EndIf
+		        THISFORM.txtP10.Refresh
+		        THISFORM.cmbP10.Refresh
+		        THISFORM.RecompW
+		      EndIf  
+		*!!!!!    EndIf  
+		  EndIf
+
+		  Return .T.
+	ENDPROC
+
+
+	PROCEDURE txtpdkrz.Valid
+
+		  If (THIS.Value<0)
+		    =MessageBox("Значение не может быть отрицательным.", 64, "Ошибка пользователя.")
+		    Return .F.
+		  EndIf
+		  
+		  If (THIS.Value != 0)
+		    If (PARAMS.c != 0)
+		        Replace v11 With Log10(PARAMS.c/PARAMS.pdk_rz) In PARAMS
+		        THISFORM.txtP11.Refresh
+			    DO Case
+			      Case (THISFORM.txtP11.Value>5)
+			        THISFORM.cmbP11.ListIndex = 1
+			      Case (THISFORM.txtP11.Value=<5).And.(THISFORM.txtP11.Value>=2)
+			        THISFORM.cmbP11.ListIndex = 2
+			      Case (THISFORM.txtP11.Value<2).And.(THISFORM.txtP11.Value>=1)
+			        THISFORM.cmbP11.ListIndex = 3
+			      OtherWise
+			        THISFORM.cmbP11.ListIndex = 4
+		        EndCase
+		        THISFORM.cmbP11.Refresh
+		        THISFORM.RecompW
+		    EndIf
+		  Else
+		      THISFORM.cmbP11.ListIndex = 0
+		      Replace p11 With 0,;
+		              v11 With 0,;
+		              b11 With 0,;
+		              s11 With "" In PARAMS
+		      THISFORM.txtP11.Refresh
+		      THISFORM.RecompW
+		  EndIf
+
+		  Return .T.
+		  
+	ENDPROC
+
+
+ENDDEFINE
+*
+*-- EndDefine: cformparam
+**************************************************

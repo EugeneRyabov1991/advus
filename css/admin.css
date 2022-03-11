@@ -1,0 +1,65 @@
+
+/*=====================================================================
+ * Таблица стилей ProtWeb
+ *-------------------------------------------------------------------
+ *   Author: E. Ryabov
+ *   Date:   10.08.16
+ */
+
+
+/*----------------------------------------------------*/
+/*	    		        Fonts                         */
+/*----------------------------------------------------*/
+@font-face {
+    font-family: "Helvetica Neue";
+    src: url('../vendor/bootstrap/fonts/HelveticaNeueCyr-Light.otf')  format('opentype');
+}
+
+@media (min-width: 768px){
+  .modal-dialog {
+     width: 1000px;
+     margin: 10px auto;
+  }
+  .form-control {
+      margin-bottom: 5px;
+  }
+}
+
+
+#divProgressBar{ display: none; }
+
+.marginR10{ margin-right: 10px;}
+.marginR5{  margin-right: 5px;}
+.marginB10{ margin-bottom: 10px;}
+.marginT10{ margin-top: 10px;}
+
+.paddingT30{ padding-top: 30px;}
+
+#lblUserName{
+  padding-left: 20px;
+}
+
+.smallBitBtn{
+  margin-right: 10px;
+  cursor: pointer;
+}
+#spanInformer{
+  display: none;
+}
+
+.hdrDialog{
+  padding: 5px;
+  background-color: #d3d3d3;
+  border-radius: 3px;
+}
+
+.stlUnvisible{ display: none; }
+
+.clsPointer {
+    cursor: pointer;
+}
+
+.clsPad20 {
+    margin-left : 5px;
+    margin-right : 5px;
+}
