@@ -150,53 +150,50 @@ $("#btnSaveBidEditForm").click(function () {
           url:  "bids/saveBidRecord.php",
           data: dataObj,
           success: function(data){
-
               SelectTabBids();
-/*
-              $("#tdBidNum"+dataObj.id_record).html($("#txtBidCode").val());
-              $("#tdBidDt"+dataObj.id_record).html($("#txtBidDate").val());
-              $("#tdCustName"+dataObj.id_record).html($("#txtCustName").val());
-              $("#tdBidPrice"+dataObj.id_record).html($("#txtBidPrice").val());
-
-              var arStatus = ["Не определен", "Зарегистрирована", "В работе", "Согласование расчета", "Проверока отчета", "Архив"];
-
-              $("#tdStatus"+dataObj.id_record).html(arStatus[$("#cmbStatus").val()]);
-*/
           }
     });
 });
+
+
+//---------------------------------------------------------------------------------------------------------------------
+//   Обработчик нажания кнопки "Сохранить" в форме редактирования состава заявки.
+//
+function SaveBidDetails(nIdBid_) {
+
+    var strObj = "{";
+    $(".ctrlFormBidEdit").each(function(index, element) {   // Перебираем все элементы редактирования, и закидываем их в строку
+        // под форматирование в JSON-объект ...
+        strObj = strObj + '"'+ $(this).attr("name") + '" : "' + htmlEscape($(this).val()) + '" ,';
+    });
+
+    $(".ctrlFormBidCheckbox").each(function(index, element) {   // Перебираем все checkbox'ы
+        strObj = strObj + '"'+ $(this).attr("name") + '" : "' + ($(this).prop("checked") ? "on" : "off") + '" ,';
+    });
+
+    strObj = strObj + '"gnCurrentUserId" : "'+ $("#txtCurrentUserId").val() +'",';  // ... сверху докидываем id пользователя ...
+    strObj = strObj + '"id_record" : "'+ $("#txtRecordId").val() +'"}';             // ... сверху докидываем id записи ...
+
+    var dataObj = JSON.parse(strObj);                                               // ... и форматируем
+
+    $.ajax({type: "POST",
+        url:  "bids/saveBidDetails.php",
+        data: dataObj,
+
+        success: function(data){
+          alert("Данные сохранены")
+        }
+    });
+};
 
 //---------------------------------------------------------------------------------------------------------------------
 //   Запуск составления счета и акта (по заявке).
 //
 function PrintDoc(cType_){
     if (cType_ == "CONTRACT"){
-        var strObj = "{";
-        $(".ctrlFormBidEdit").each(function(index, element) {   // Перебираем все элементы редактирования, и закидываем их в строку
-            // под форматирование в JSON-объект ...
-            strObj = strObj + '"'+ $(this).attr("name") + '" : "' + htmlEscape($(this).val()) + '" ,';
-        });
-
-        $(".ctrlFormBidCheckbox").each(function(index, element) {   // Перебираем все checkbox'ы
-            strObj = strObj + '"'+ $(this).attr("name") + '" : "' + ($(this).prop("checked") ? "on" : "off") + '" ,';
-        });
-
-        strObj = strObj + '"gnCurrentUserId" : "'+ $("#txtCurrentUserId").val() +'",';  // ... сверху докидываем id пользователя ...
-        strObj = strObj + '"id_record" : "'+ $("#txtRecordId").val() +'"}';             // ... сверху докидываем id записи ...
-
-        var dataObj = JSON.parse(strObj);                                               // ... и форматируем
-
-        $.ajax({type: "POST",
-            url:  "bids/saveBidRecord.php",
-            data: dataObj,
-            success: function(data){
-                document.location.href='bids/createContract.php?id_record='+$("#txtRecordId").val();
-            }
-        });
-
-
-    }else  if (cType_ == "BILL"){
-        document.location.href='bids/createBidBill.php?id_record='+$("#txtRecordId").val();
+       document.location.href='bids/createContract.php?id_record='+$("#txtRecordId").val();
+    } else  if (cType_ == "BILL"){
+       document.location.href='bids/createBidBill.php?id_record='+$("#txtRecordId").val();
     }
 }
 
@@ -267,69 +264,6 @@ function BidDetails(nId_){
             $("#divProgressBar").fadeOut();
         }
     })
-}
-
-//---------------------------------------------------------------------------------------------------------------------
-//   Сохраняем состав заявки в БД.
-//
-function saveBidDetails(nIdRecord_, nRowCount_, nColCount_){
-    if (confirm("Очистить содержание заявки?")) {
-        var strObj = "{";
-        $(".stlValue").filter(":visible").each(function(index, element) {   // Перебираем все элементы редактирования, и закидываем их в строку
-            // под форматирование в JSON-объект ...
-            strObj = strObj + '"'+ $(this).attr("name") + '" : "' + htmlEscape($(this).html()) + '" ,';
-        });
-
-        $(".ctrlFormBidEdit").each(function(index, element) {   // Перебираем все элементы редактирования, и закидываем их в строку
-            // под форматирование в JSON-объект ...
-            strObj = strObj + '"'+ $(this).attr("name") + '" : "' + htmlEscape($(this).val()) + '" ,';
-        });
-
-        strObj = strObj + '"gnCurrentUserId" : "'+ $("#txtCurrentUserId").val() +'",';  // ... сверху докидываем id пользователя ...
-        strObj = strObj + '"row_count" : "'+ nRowCount_ +'",';
-        strObj = strObj + '"col_count" : "'+ nColCount_ +'",';
-        if (confirm("Пополнять справочник продукции?")){
-            strObj = strObj + '"parse_goods" : "1",';
-        }else{
-            strObj = strObj + '"parse_goods" : "0",';
-        }
-
-        strObj = strObj + '"id_record" : "'+ nIdRecord_ +'"}';             // ... сверху докидываем id записи ...
-
-        var dataObj = JSON.parse(strObj);                                               // ... и форматируем
-
-        $("#pnlContent").html("");
-        $("#divProgressBar").fadeIn();
-
-        $.ajax({
-            type: "POST",
-            url: "bids/clearBidDetails.php",
-            data: dataObj,
-            success: function (data) {
-                if (confirm("Сохранить содержание заявки?")) {
-                    $.ajax({
-                        type: "POST",
-                        url: "bids/saveBidDetails.php",
-                        data: dataObj,
-                        success: function (data) {
-                            $.ajax({
-                                type: "POST",
-                                url:  "bids/refreshBidDetails.php",
-                                data: dataObj,
-                                success: function(data){
-                                    $("#pnlContent").html(data);
-                                    $("#divProgressBar").fadeOut();
-                                }
-                            })
-                        },
-                        error:   function(e){alert("Error:"+ e.toString());}
-                    })
-                }
-            },
-            error:   function(e){alert("Error:"+ e.toString());}
-        })
-
-    }
 }
 
 //---------------------------------------------------------------------------------------------------------------------

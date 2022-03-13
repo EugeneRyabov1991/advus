@@ -59,10 +59,11 @@ $arMonths = array ("января", "февраля", "марта", "апреля
 $nIdRecord = $_GET["id_record"];      /** @var INTEGER  $nIdRecord */
 
 
-$sSQL = "Select * FROM bids Where bids.id = ".$nIdRecord." Limit 1";
+$sSQL = "Select * FROM bids
+           Left Join bid_details On bids.id = bid_details.id_bid 
+           Where bids.id = ".$nIdRecord." Limit 1";
 
 $crsBids = mysqli_query($link, $sSQL);
-
 
 if ($rowBid = mysqli_fetch_array($crsBids)) {
     // Выбираем страховку
@@ -234,6 +235,29 @@ if ($rowBid = mysqli_fetch_array($crsBids)) {
             $cCommandResult = UnEncodingStr($rowBid["custBossFullName"]);
         }else if ($cCommandStr === "CustTypeDoc") {
             $cCommandResult = UnEncodingStr($rowBid["custDocType"]);
+        }else if ($cCommandStr === "BD_P21") {
+            $cCommandResult = UnEncodingStr($rowBid["p21"]);
+        }else if ($cCommandStr === "BD_P22") {
+            $cCommandResult = UnEncodingStr($rowBid["p22"]);
+        }else if ($cCommandStr === "BD_P3") {
+            $cCommandResult = UnEncodingStr($rowBid["p3"]);
+        }else if ($cCommandStr === "BD_P4") {
+            $cCommandResult = UnEncodingStr($rowBid["p4"]);
+        }else if ($cCommandStr === "BD_P5") {
+            $cCommandResult = UnEncodingStr($rowBid["p5"]);
+        }else if ($cCommandStr === "BD_P6") {
+            $cCommandResult = UnEncodingStr($rowBid["p6"]);
+        }else if ($cCommandStr === "BD_P9") {
+            $cCommandResult = UnEncodingStr($rowBid["p9"]);
+        }else if ($cCommandStr === "BD_BLOCK8") {
+            $cCommandResult = "Какие-то дополнительные документы!!!!!";  // ToDo ...
+        }else if ($cCommandStr === "BD_BLOCK8_LASTNUM") {
+            $cCommandResult = "8.x";                                     // ToDo ...
+        }else if ($cCommandStr === "SubjName") {
+            $cCommandResult = UnEncodingStr($rowBid["subject"]);
+        }else if ($cCommandStr === "SubjDetails") {
+            $cCommandResult = "Какой-то список объектов!!!!!";           // ToDo ...
+
 
         }else if ($cCommandStr === "ContractDate") {
             $сDate = $rowBid["dt"];

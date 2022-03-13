@@ -29,7 +29,7 @@ $nIdRecord = $_POST["id_record"];      /** @var INTEGER  $nIdRecord */
       $crsBidDetails = mysqli_query($link, $sSQL);
   }
 
-  $nId   = $rowBid['id'];
+  $nId   = $nIdRecord;
   $cSubject   = htmlspecialchars_decode($rowBid['subject']);
   $cP21   = htmlspecialchars_decode($rowBid['p21']);
   $cP22   = htmlspecialchars_decode($rowBid['p22']);
@@ -89,6 +89,12 @@ echo '  <div class="col-sm-8">
                <input class="form-control ctrlFormBidEdit" name="txtBidP9" id="txtBidP9" type="text" value="'.$cP9.'">
             </div>';
 echo '</div>';
+echo '
+                        <div>
+                            <button type="button" class="btn btn-primary" id="btnPrintBill" onclick="PrintDoc(\'CONTRACT\')"><i class="fa fa-fw fa-print"></i>Печатать договор</button>
+                            <button type="button" class="btn btn-primary"  onclick="SaveBidDetails('.$nIdRecord.')" ><i class="fa fa-fw fa-save"></i>Сохранить</button>
+                        </div>';
+
 
 ?>
 
