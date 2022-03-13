@@ -83,6 +83,32 @@ echo '  <div class="col-sm-8">
                <input class="form-control ctrlFormBidEdit" name="txtBidP6" id="txtBidP6" type="text" value="'.$cP6.'">
             </div>';
 echo '</div>';
+
+$nFSOO7 = $rowBid['fso7'];
+$nFSOO8 = $rowBid['fso8'];
+$nFSOO9 = $rowBid['fso9'];
+$nFSO10 = $rowBid['fso10'];
+$nFSO11 = $rowBid['fso11'];
+$nFSO12 = $rowBid['fso12'];
+$nFSO13 = $rowBid['fso13'];
+$cFSO07 = ($nFSOO7==1 ? "CHECKED" : "");
+$cFSO08 = ($nFSOO8==1 ? "CHECKED" : "");
+$cFSO09 = ($nFSOO9==1 ? "CHECKED" : "");
+$cFSO10 = ($nFSO10==1 ? "CHECKED" : "");
+$cFSO11 = ($nFSO11==1 ? "CHECKED" : "");
+$cFSO12 = ($nFSO12==1 ? "CHECKED" : "");
+$cFSO13 = ($nFSO13==1 ? "CHECKED" : "");
+
+echo '<div class="form-group">';
+echo '  <div class="col-sm-1"><INPUT TYPE="checkbox" class="ctrlFormBidCheckbox" NAME="chkDoc7" ID="chkDoc7" '.$cFSO07.'/>ФСО № 7</div>';
+echo '  <div class="col-sm-1"><INPUT TYPE="checkbox" class="ctrlFormBidCheckbox" NAME="chkDoc8" ID="chkDoc8" '.$cFSO08.'/>ФСО № 8</div>';
+echo '  <div class="col-sm-1"><INPUT TYPE="checkbox" class="ctrlFormBidCheckbox" NAME="chkDoc9" ID="chkDoc9" '.$cFSO09.'/>ФСО № 9</div>';
+echo '  <div class="col-sm-1"><INPUT TYPE="checkbox" class="ctrlFormBidCheckbox" NAME="chkDoc10" ID="chkDoc10" '.$cFSO10.'/>ФСО № 10</div>';
+echo '  <div class="col-sm-1"><INPUT TYPE="checkbox" class="ctrlFormBidCheckbox" NAME="chkDoc11" ID="chkDoc11" '.$cFSO11.'/>ФСО № 11</div>';
+echo '  <div class="col-sm-1"><INPUT TYPE="checkbox" class="ctrlFormBidCheckbox" NAME="chkDoc12" ID="chkDoc12" '.$cFSO12.'/>ФСО № 12</div>';
+echo '  <div class="col-sm-6"><INPUT TYPE="checkbox" class="ctrlFormBidCheckbox" NAME="chkDoc13" ID="chkDoc13" '.$cFSO13.'/>ФСО № 13</div>';
+echo '</div>';
+
 echo '<div class="form-group">';
 echo '  <div class="col-sm-4"><label class="control-label" for="txtBidP9">9. Срок проведения оценки :</label></div>';
 echo '  <div class="col-sm-8">

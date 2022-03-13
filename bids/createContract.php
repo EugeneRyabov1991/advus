@@ -73,6 +73,7 @@ if ($rowBid = mysqli_fetch_array($crsBids)) {
     $cInsuranceDtStart = "";
     $cInsuranceDtFinish = "";
     $cInsuranceSum = "";
+
     $sInsuranceSQL = "Select * FROM insurances Where id = ".$InsuranceId." Limit 1";
     $crsInsurances = mysqli_query($link, $sInsuranceSQL);
     if ($rowInsurance = mysqli_fetch_array($crsInsurances)) {
@@ -84,6 +85,15 @@ if ($rowBid = mysqli_fetch_array($crsBids)) {
     }
 
     $nSelfFirmId = $rowBid["id_firm"];
+
+    $nFSOO7 = $rowBid['fso7'];
+    $nFSOO8 = $rowBid['fso8'];
+    $nFSOO9 = $rowBid['fso9'];
+    $nFSO10 = $rowBid['fso10'];
+    $nFSO11 = $rowBid['fso11'];
+    $nFSO12 = $rowBid['fso12'];
+    $nFSO13 = $rowBid['fso13'];
+    $nFSOCount = $nFSOO7+$nFSOO8+$nFSOO9+$nFSO10+$nFSO11+$nFSO12+$nFSO13+4;
 
 // Выводим HTTP-заголовки
     header("Expires: Mon, 1 Apr 1974 05:00:00 GMT");
@@ -250,9 +260,18 @@ if ($rowBid = mysqli_fetch_array($crsBids)) {
         }else if ($cCommandStr === "BD_P9") {
             $cCommandResult = UnEncodingStr($rowBid["p9"]);
         }else if ($cCommandStr === "BD_BLOCK8") {
-            $cCommandResult = "Какие-то дополнительные документы!!!!!";  // ToDo ...
+            $nNum = 4;
+            $cCommandResult = "";
+            if ($nFSOO7 == 1) { $cCommandResult .= "{\ql 8.".$nNum.". ФСО7 \par}"; $nNum++; }
+            if ($nFSOO8 == 1) { $cCommandResult .= "{\ql 8.".$nNum.". ФСО8 \par}"; $nNum++; }
+            if ($nFSOO9 == 1) { $cCommandResult .= "{\ql 8.".$nNum.". ФСО9 \par}"; $nNum++; }
+            if ($nFSO10 == 1) { $cCommandResult .= "{\ql 8.".$nNum.". ФСО10 \par}"; $nNum++; }
+            if ($nFSO11 == 1) { $cCommandResult .= "{\ql 8.".$nNum.". ФСО11 \par}"; $nNum++; }
+            if ($nFSO12 == 1) { $cCommandResult .= "{\ql 8.".$nNum.". ФСО12 \par}"; $nNum++; }
+            if ($nFSO13 == 1) { $cCommandResult .= "{\ql 8.".$nNum.". ФСО13 \par}"; $nNum++; }
+
         }else if ($cCommandStr === "BD_BLOCK8_LASTNUM") {
-            $cCommandResult = "8.x";                                     // ToDo ...
+            $cCommandResult = "8.".$nFSOCount.".";                                     // ToDo ...
         }else if ($cCommandStr === "SubjName") {
             $cCommandResult = UnEncodingStr($rowBid["subject"]);
         }else if ($cCommandStr === "SubjDetails") {
