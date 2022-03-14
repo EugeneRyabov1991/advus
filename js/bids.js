@@ -292,3 +292,83 @@ function MakeBidReport(cBidId_){
   document.location.href='bids/createReport.php?id_record='+cBidId_;
 }
 
+
+//---------------------------------------------------------------------------------------------------------------------
+//   Работа с составом заявки
+//
+function InsertBidSubj(nIdBid_){
+    var dataObj = {
+        "id_bid"            : nIdBid_,
+        "gnCurrentUserId"   : $("#txtCurrentUserId").val()
+    };
+    $.ajax({
+        type: "POST",
+        url:  "bids/subject/insertBidSubject.php",
+        data: dataObj,
+        success: function(objRecord_){     // в параметр objRecord_ возвращается JSON-объект с данными по конкретной записи справочника
+            $("#trBidSubjectHeader").after(objRecord_);
+        },
+        error:   function(e){alert("Error:"+ e.toString());}
+    });
+}
+
+function DeleteBidSubj(nIdBidSubj_){
+    if (confirm("Bы уверены, что хотите удалить позицию в предмете договора?")){
+        var dataObj = {
+            "id_record" : nIdBidSubj_,
+            "gnCurrentUserId"   : $("#txtCurrentUserId").val()
+        };
+        $.ajax({
+            type: "POST",
+            url:  "bids/subject/deleteBidSubject.php",
+            data: dataObj,
+            success: function(data){
+                $("#trRecord"+nIdBidSubj_).fadeOut(100);
+            },
+            error:   function(e){alert("Error:"+ e.toString());}
+        });
+    }
+}
+
+function showBidSubjEditForm(nIdBidSubj_){
+    var dataObj = {
+        "gnCurrentUserId"  : $("#txtCurrentUserId").val(),
+        "id_record"        : nIdBidSubj_
+    };
+    $.ajax({
+        type: "POST",
+        url:  "bids/subject/formBidSubjEdit.php",
+        data: dataObj,
+        success: function(data){
+            $("#frmBidSubjEdit").html(data);
+            $("#dlgBidSubjEditForm").modal({backdrop: false});
+        }
+    })
+}
+
+
+//---------------------------------------------------------------------------------------------------------------------
+//   Обработчик нажания кнопки "Сохранить" в форме редактирования состава исполнитлей заявки.
+//
+$("#btnSaveBidSubj").click(function () {
+    var strObj = "{";
+    $(".ctrlFormBidSubj").each(function(index, element) {   // Перебираем все элементы редактирования, и закидываем их в строку
+        // под форматирование в JSON-объект ...
+        strObj = strObj + '"'+ $(this).attr("name") + '" : "' + htmlEscape($(this).val()) + '" ,';
+    });
+
+    strObj = strObj + '"gnCurrentUserId" : "'+ $("#txtCurrentUserId").val() +'",';  // ... сверху докидываем id пользователя ...
+    strObj = strObj + '"id_record" : "'+ $("#txtBidSubjId").val() +'"}';             // ... сверху докидываем id записи ...
+
+    var dataObj = JSON.parse(strObj);                                               // ... и форматируем
+
+    $.ajax({type: "POST",
+        url:  "bids/subject/saveBidSubj.php",
+        data: dataObj,
+        success: function(data){
+            $("#tdBidSubjNum"+$("#txtBidSubjId").val()).html($("#txtBidSubjNum").val());
+            $("#tdBidSubjName"+$("#txtBidSubjId").val()).html($("#txtBidSubjName").val());
+        }
+    });
+});
+

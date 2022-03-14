@@ -53,6 +53,34 @@ function CreateUserTable($link_, $nIdBid_){
 
 }
 
+function CreateSubjTable($link_, $nIdBid_){
+    $oReport = new CMakeRTF();
+    $oReport->BeginTable();
+    $oReport->setColumnsCount(2);
+    $oReport->m_arTblWidths[1] = CMakeRTF::Twips(1);
+    $oReport->m_arTblWidths[2] = CMakeRTF::Twips(16);
+//    $oReport->m_arTblBorders[1] = "dsds";
+//    $oReport->m_arTblBorders[2] = "ssds";
+    $oReport->m_arTblBorders[1] = "    ";
+    $oReport->m_arTblBorders[2] = "    ";
+    $oReport->SetupFlexColumns(0);
+    $oReport->m_arTblAlign[1] = CMakeRTF::$raRight;
+    $oReport->m_arTblAlign[2] = CMakeRTF::$raLeft;
+
+    $sSQL = "Select *  FROM bid_subj Where id_bid = ".$nIdBid_." Order By num";
+    $crsUsers = mysqli_query($link_, $sSQL);
+    while ($rowUser = mysqli_fetch_array($crsUsers)){
+      $oReport->m_arTblValues[1] = $rowUser["num"];
+      $oReport->m_arTblValues[2] = $rowUser["name"];
+      $oReport->WriteRow();
+    }
+    $oReport->EndTable();
+
+    return $oReport->m_cTextResult;
+
+}
+
+
 
 $arMonths = array ("января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря");
 
@@ -271,13 +299,11 @@ if ($rowBid = mysqli_fetch_array($crsBids)) {
             if ($nFSO13 == 1) { $cCommandResult .= "{\ql 8.".$nNum.". ФСО13 \par}"; $nNum++; }
 
         }else if ($cCommandStr === "BD_BLOCK8_LASTNUM") {
-            $cCommandResult = "8.".$nFSOCount.".";                                     // ToDo ...
+            $cCommandResult = "8.".$nFSOCount.".";
         }else if ($cCommandStr === "SubjName") {
             $cCommandResult = UnEncodingStr($rowBid["subject"]);
         }else if ($cCommandStr === "SubjDetails") {
-            $cCommandResult = "Какой-то список объектов!!!!!";           // ToDo ...
-
-
+            $cCommandResult = CreateSubjTable($link, $nIdRecord);
         }else if ($cCommandStr === "ContractDate") {
             $сDate = $rowBid["dt"];
             $nMonth = substr($сDate, 3, 2);

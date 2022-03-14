@@ -325,6 +325,28 @@ $arPictureTypes = array ("Фон [ЗАГОЛОВОК]", "Иконки (80x66)", 
     </div>
 
 
+    <!-- Редактирвоание позиции в базе заявок @dlgBidSubjEditForm  -->
+    <div class="modal fade" id="dlgBidSubjEditForm" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header hdrDialog">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="HeaderSection" id="headerBidSubjEditForm">Редактирование позиции в заявке</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form" >
+                        <div class="form-group" id="frmBidSubjEdit">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnSaveBidSubj"><i class='fa fa-fw fa-save'></i>Сохранить</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Редактирвоание состава команды по договору @dlgBidUserForm  -->
     <div class="modal fade" id="dlgBidUserForm" role="dialog">
         <div class="modal-dialog">
