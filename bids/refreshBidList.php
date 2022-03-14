@@ -24,7 +24,7 @@ $arStatus = array ("Не определен", "Зарегистрирован", 
 $arPayStatus = array ("Нет оплаты", "Внесен аванс", "Оплачен");
 
 
-echo "<tr id='trBidHeader'><th>№</th><th>Дата</th><th>Клиент</th><th>Цена</th><th>Команда</th><th>Статус</th><th>&nbsp;</th>";
+echo "<tr id='trBidHeader'><th>№</th><th>Дата</th><th>Клиент</th><th>Цена</th><th>Команда</th><th>Статус</th><th>&nbsp;</th></tr>";
 
   $crsBids = mysqli_query($link, $sSQL);
   while ($rowBid = mysqli_fetch_array($crsBids)){
