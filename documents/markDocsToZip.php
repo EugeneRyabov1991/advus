@@ -10,6 +10,8 @@
 
 include("../db_connect.php");
 
+$cIdUser = $_POST["id_user"];
+
 
 $sSQL = "Select *, documents.id as id_doc, users.name as user_name From documents
              Left Join users on users.id=documents.id_user

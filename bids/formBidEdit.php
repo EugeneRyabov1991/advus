@@ -265,6 +265,7 @@ $nIdRecord = $_POST["id_record"];      /** @var INTEGER  $nIdRecord */
     echo '       <option id="optFirm1" Value="1" '.($nIdFirm==1 ? "SELECTED" : "").'>Адвус-Нева</option>';
     echo '       <option id="optFirm2" Value="2" '.($nIdFirm==2 ? "SELECTED" : "").'>ООО «ГСЭК»</option>';
     echo '       <option id="optFirm3" Value="3" '.($nIdFirm==3 ? "SELECTED" : "").'>НП «ДСЭК»</option>';
+    echo '       <option id="optFirm4" Value="4" '.($nIdFirm==4 ? "SELECTED" : "").'>Адвус-Нева (Альфа)</option>';
     echo '    </select>';
     echo '  </div>';
     echo '</div>';

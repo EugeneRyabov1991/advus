@@ -104,8 +104,10 @@ function SelectTabDocs(nFilterId_, cUserName_) {
         "gnCurrentUserId"   : $("#txtCurrentUserId").val(),
         "gcMode"            : "DOCS",
         "gcSortField"       : "caption",
+        "userName"          : cUserName_,
         "gcFilter"          : nFilterId_
     };
+
         $.ajax({
             type: "POST",
             data: dataObj,

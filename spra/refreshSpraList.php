@@ -31,7 +31,8 @@ $cIdUser = $_POST["gnCurrentUserId"];
         break;
     case "DOCS":
         $sSQL = "Select * FROM documents Where id_user=".$cFilterValue." Order By caption";
-        echo '<button type="button" class="btn btn-primary" id="btnMailing" onClick="MarkDocsToZip()"><i class="fa fa-lg fa-file-zip-o"></i>Сделать выгрузку документов</button>';
+        $userName = $_POST["userName"];
+        echo '<button type="button" class="btn btn-primary" id="btnMailing" onClick="MarkDocsToZip('.$cFilterValue.', \''.$userName.'\')"><i class="fa fa-lg fa-file-zip-o"></i>Сделать выгрузку документов</button>';
         break;
     case "INSURANCES":
         $sSQL = "Select * FROM insurances Order By name";

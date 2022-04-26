@@ -240,12 +240,24 @@ function onLoadDocument(nIdDoc_){
 }
 
 
-function MarkDocsToZip(){
+function MarkDocsToZip(nUserId_, cUserName_){
+    var dataObj = {
+        "gnCurrentUserId"  : $("#txtCurrentUserId").val(),
+        "id_user"          : nUserId_,
+    };
     $("#pnlContent").html("");
     $("#divProgressBar").fadeIn();
-    $("#divHeader").html("Пометьте документы для выгрузки");
+
+    if (nUserId_ != 0) {
+        cHeader = "<a class='btn btn-primary btn-lg marginB10' role='button'  onClick='SelectTabDocs(\""+nUserId_+"\", \""+cUserName_+"\")' title='К документам сотрудника'><i class='fa fa-lg fa-backward marginR5'></i></a>";
+    }else{
+        cHeader = "<a class='btn btn-primary btn-lg marginB10' role='button'  onClick='SelectTab(\"tabUsers\", \"\")' title='К списку сотрудников'><i class='fa fa-lg fa-backward marginR5'></i></a>";
+    }
+
+    $("#divHeader").html(cHeader+"Пометьте документы для выгрузки");
     $.ajax({
         type: "POST",
+        data: dataObj,
         url:  "documents/markDocsToZip.php",
         success: function(data){     // в параметр [data] возвращается отформатированная строка таблицы с данными по новому городу
             $("#pnlContent").html(data);

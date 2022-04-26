@@ -150,6 +150,8 @@ if ($rowBid = mysqli_fetch_array($crsBids)) {
                 $cCommandResult = "Общество с ограниченной ответственностью «Городская служба экспертизы и кадастра»";
             } else if ($nSelfFirmId == 3) {
                 $cCommandResult = "Некоммерческое партнерство «Деловой Союз Судебных Экспертов»";
+            } else if ($nSelfFirmId == 4) {
+                $cCommandResult = "Общество с ограниченной ответственностью «АДВУС-НЕВА»";
             }
         }else if ($cCommandStr === "SelfFirmShortName") {
             if ($nSelfFirmId == 1) {
@@ -158,6 +160,8 @@ if ($rowBid = mysqli_fetch_array($crsBids)) {
                 $cCommandResult = "ООО «ГСЭК»";
             }else if ($nSelfFirmId == 3) {
                 $cCommandResult = "НП «ДСЭК»";
+            }else if ($nSelfFirmId == 4) {
+                $cCommandResult = "ООО «АДВУС-НЕВА»";
             }
         }else if ($cCommandStr === "SelfFirmBossFullName") {
             if ($nSelfFirmId == 1) {
@@ -166,6 +170,8 @@ if ($rowBid = mysqli_fetch_array($crsBids)) {
                 $cCommandResult = "Киричок Светланы Александровны";
             }else if ($nSelfFirmId == 3) {
                 $cCommandResult = "Ворончихина Демиана Валерьевича";
+            }else if ($nSelfFirmId == 4) {
+                $cCommandResult = "Фаттахова Марата Джавдатовича";
             }
         }else if ($cCommandStr === "SelfFirmBoss") {
             if ($nSelfFirmId == 1) {
@@ -174,6 +180,8 @@ if ($rowBid = mysqli_fetch_array($crsBids)) {
                 $cCommandResult = "С.А. Киричок";
             }else if ($nSelfFirmId == 3) {
                 $cCommandResult = "Д.В. Ворончихин";
+            }else if ($nSelfFirmId == 4) {
+                $cCommandResult = "М.Д. Фаттахов";
             }
         }else if ($cCommandStr === "SelfFirmINN") {
             if ($nSelfFirmId == 1) {
@@ -182,6 +190,8 @@ if ($rowBid = mysqli_fetch_array($crsBids)) {
                 $cCommandResult = "7804518162";
             }else if ($nSelfFirmId == 3) {
                 $cCommandResult = "7706470931";
+            }else if ($nSelfFirmId == 3) {
+                $cCommandResult = "7825470497";
             }
         }else if ($cCommandStr === "SelfFirmKPP") {
             if ($nSelfFirmId == 1) {
@@ -190,6 +200,8 @@ if ($rowBid = mysqli_fetch_array($crsBids)) {
                 $cCommandResult = "770943002";
             }else if ($nSelfFirmId == 3) {
                 $cCommandResult = "770601001";
+            }else if ($nSelfFirmId == 4) {
+                $cCommandResult = "784001001";
             }
         }else if ($cCommandStr === "SelfFirmAddrJ") {
             if ($nSelfFirmId == 1) {
@@ -198,6 +210,8 @@ if ($rowBid = mysqli_fetch_array($crsBids)) {
                 $cCommandResult = "191014, г. Санкт-Петербург, Ковенский пер, дом 22-24, литера А, 6Н, офис 2";
             }else if ($nSelfFirmId == 3) {
                 $cCommandResult = "119049, г. Москва, ул. Мытная, дом 28, строение 3";
+            }else if ($nSelfFirmId == 4) {
+                $cCommandResult = "191023, г. Санкт-Петербург, улица Садовая, дом 28-30, корпус 4, пом.11-Н";
             }
         }else if ($cCommandStr === "SelfFirmAddr") {
             if ($nSelfFirmId == 1) {
@@ -206,6 +220,8 @@ if ($rowBid = mysqli_fetch_array($crsBids)) {
                 $cCommandResult = "191014, г. Санкт-Петербург, Ковенский пер, дом 22-24, литера А, 6Н, офис 2";
             }else if ($nSelfFirmId == 3) {
                 $cCommandResult = "191014, г. Санкт-Петербург, ул. Радищева, д.12";
+            }else if ($nSelfFirmId == 4) {
+                $cCommandResult = "191014, г. Санкт-Петербург, ул. Радищева д.12, оф.14";
             }
         }else if ($cCommandStr === "SelfFirmRS") {
             if ($nSelfFirmId == 1) {
@@ -214,6 +230,9 @@ if ($rowBid = mysqli_fetch_array($crsBids)) {
                 $cCommandResult = "40702810103260013031";
             }else if ($nSelfFirmId == 3) {
                 $cCommandResult = "40703810900000000322";
+            }else if ($nSelfFirmId == 4) {
+                $cCommandResult = "40702810532000005262";
+
             }
         }else if ($cCommandStr === "SelfFirmBank") {
             if ($nSelfFirmId == 1) {
@@ -222,6 +241,8 @@ if ($rowBid = mysqli_fetch_array($crsBids)) {
                 $cCommandResult = "Филиале «Центральный» Банка ВТБ (ПАО) в г. Москве";
             }else if ($nSelfFirmId == 3) {
                 $cCommandResult = "в ПАО «Промсвязьбанк» г. Москва";
+            }else if ($nSelfFirmId == 4) {
+                $cCommandResult = "в ФИЛИАЛЕ «САНКТ-ПЕТЕРБУРГСКИЙ» АО «АЛЬФА-БАНК»";
             }
         }else if ($cCommandStr === "SelfFirmKS") {
             if ($nSelfFirmId == 1) {
@@ -230,6 +251,8 @@ if ($rowBid = mysqli_fetch_array($crsBids)) {
                 $cCommandResult = "30101810145250000411";
             }else if ($nSelfFirmId == 3) {
                 $cCommandResult = "30101810400000000555";
+            }else if ($nSelfFirmId == 4) {
+                $cCommandResult = "30101810600000000786";
             }
         }else if ($cCommandStr === "SelfFirmBIK") {
             if ($nSelfFirmId == 1) {
@@ -238,6 +261,8 @@ if ($rowBid = mysqli_fetch_array($crsBids)) {
                 $cCommandResult = "044525411";
             }else if ($nSelfFirmId == 3) {
                 $cCommandResult = "044525555";
+            }else if ($nSelfFirmId == 4) {
+                $cCommandResult = "044030786";
             }
         }else if ($cCommandStr === "SelfFirmOGRN") {
             if ($nSelfFirmId == 1) {
@@ -246,6 +271,8 @@ if ($rowBid = mysqli_fetch_array($crsBids)) {
                 $cCommandResult = "1137847408016 от 24.11.2013";
             }else if ($nSelfFirmId == 3) {
                 $cCommandResult = "1137799002582 от 08.02.2013 г.";
+            }else if ($nSelfFirmId == 4) {
+                $cCommandResult = "1037843076424 от 11.02.2003 г.";
             }
         }else if ($cCommandStr === "NumDog") {
             $cCommandResult = $rowBid["num"];
