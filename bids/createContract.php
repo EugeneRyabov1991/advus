@@ -123,6 +123,8 @@ if ($rowBid = mysqli_fetch_array($crsBids)) {
     $nFSO13 = $rowBid['fso13'];
     $nFSOCount = $nFSOO7+$nFSOO8+$nFSOO9+$nFSO10+$nFSO11+$nFSO12+$nFSO13+4;
 
+    $isFFL = $rowBid['isFL'];
+
 // Выводим HTTP-заголовки
     header("Expires: Mon, 1 Apr 1974 05:00:00 GMT");
     header("Last-Modified: " . gmdate("D,d M YH:i:s") . " GMT");
@@ -190,7 +192,7 @@ if ($rowBid = mysqli_fetch_array($crsBids)) {
                 $cCommandResult = "7804518162";
             }else if ($nSelfFirmId == 3) {
                 $cCommandResult = "7706470931";
-            }else if ($nSelfFirmId == 3) {
+            }else if ($nSelfFirmId == 4) {
                 $cCommandResult = "7825470497";
             }
         }else if ($cCommandStr === "SelfFirmKPP") {
@@ -278,6 +280,8 @@ if ($rowBid = mysqli_fetch_array($crsBids)) {
             $cCommandResult = $rowBid["num"];
         }else if ($cCommandStr === "CustName") {
             $cCommandResult = UnEncodingStr($rowBid["custName"]);
+        }else if ($cCommandStr === "CustFullName") {
+            $cCommandResult = UnEncodingStr($rowBid["custFullName"]);
         }else if ($cCommandStr === "CustBoss") {
             $cCommandResult = UnEncodingStr($rowBid["custBoss"]);
         }else if ($cCommandStr === "CustINN") {
@@ -298,8 +302,32 @@ if ($rowBid = mysqli_fetch_array($crsBids)) {
             $cCommandResult = UnEncodingStr($rowBid["custBank"]);
         }else if ($cCommandStr === "CustBossFullName") {
             $cCommandResult = UnEncodingStr($rowBid["custBossFullName"]);
+        }else if ($cCommandStr === "CustRekv1") {
+            if ($isFFL == 0) {
+                $cCommandResult = "ИНН " . $rowBid["custINN"] . ", КПП " . $rowBid["custKPP"];
+            }else{
+                $cCommandResult = "Адрес: " . UnEncodingStr($rowBid["custAddress"]);
+            }
+        }else if ($cCommandStr === "CustRekv2") {
+            if ($isFFL == 0) {
+                $cCommandResult = "Юридический адрес: ".UnEncodingStr($rowBid["custAddress"]);
+            }else{
+                $cCommandResult = "Паспорт РФ: ".UnEncodingStr($rowBid["custAddress"]);  // ToDo: ...
+            }
+        }else if ($cCommandStr === "CustRekv3") {
+            if ($isFFL == 0) {
+              $cCommandResult = "р/с ".$rowBid["custRS"]." ".UnEncodingStr($rowBid["custBank"]);
+            }else{
+              $cCommandResult = "";
+            }
+        }else if ($cCommandStr === "CustRekv4") {
+            if ($isFFL == 0) {
+               $cCommandResult = "к/с ".$rowBid["custKS"].", БИК ".$rowBid["custBIK"].", ОГРН ".$rowBid["custOGRN"];
+            }else{
+               $cCommandResult = "";
+            }
         }else if ($cCommandStr === "CustTypeDoc") {
-            $cCommandResult = UnEncodingStr($rowBid["custDocType"]);
+                 $cCommandResult = UnEncodingStr($rowBid["custDocType"]);
         }else if ($cCommandStr === "BD_P21") {
             $cCommandResult = UnEncodingStr($rowBid["p21"]);
         }else if ($cCommandStr === "BD_P22") {
@@ -317,13 +345,13 @@ if ($rowBid = mysqli_fetch_array($crsBids)) {
         }else if ($cCommandStr === "BD_BLOCK8") {
             $nNum = 4;
             $cCommandResult = "";
-            if ($nFSOO7 == 1) { $cCommandResult .= "{\ql 8.".$nNum.". ФСО7 \par}"; $nNum++; }
-            if ($nFSOO8 == 1) { $cCommandResult .= "{\ql 8.".$nNum.". ФСО8 \par}"; $nNum++; }
-            if ($nFSOO9 == 1) { $cCommandResult .= "{\ql 8.".$nNum.". ФСО9 \par}"; $nNum++; }
-            if ($nFSO10 == 1) { $cCommandResult .= "{\ql 8.".$nNum.". ФСО10 \par}"; $nNum++; }
-            if ($nFSO11 == 1) { $cCommandResult .= "{\ql 8.".$nNum.". ФСО11 \par}"; $nNum++; }
-            if ($nFSO12 == 1) { $cCommandResult .= "{\ql 8.".$nNum.". ФСО12 \par}"; $nNum++; }
-            if ($nFSO13 == 1) { $cCommandResult .= "{\ql 8.".$nNum.". ФСО13 \par}"; $nNum++; }
+            if ($nFSOO7 == 1) { $cCommandResult .= "{\ql 8.".$nNum.". Федеральный Стандарт оценки «Оценка недвижимости» (ФСО №7), утвержденный Приказом Минэкономразвития России от 25.09.2014 N 611 \par}"; $nNum++; }
+            if ($nFSOO8 == 1) { $cCommandResult .= "{\ql 8.".$nNum.". Федеральный Стандарт оценки «Оценка бизнеса» (ФСО №8), утвержденный Приказом Минэкономразвития России от 01.06.2015 N 326 \par}"; $nNum++; }
+            if ($nFSOO9 == 1) { $cCommandResult .= "{\ql 8.".$nNum.". Федеральный Стандарт оценки «Оценка для целей залога» (ФСО №9), утвержденный Приказом Минэкономразвития России от 01.06.2015 N 327 \par}"; $nNum++; }
+            if ($nFSO10 == 1) { $cCommandResult .= "{\ql 8.".$nNum.". Федеральный Стандарт оценки «Оценка стоимости машин и оборудования» (ФСО №10), утвержденный Приказом Минэкономразвития России от 01.06.2015 N 328 \par}"; $nNum++; }
+            if ($nFSO11 == 1) { $cCommandResult .= "{\ql 8.".$nNum.". Федеральный Стандарт оценки «Оценка нематериальных активов и интеллектуальной собственности» (ФСО №11), утвержденный Приказом Минэкономразвития России от 22.06.2015 N 385 \par}"; $nNum++; }
+            if ($nFSO12 == 1) { $cCommandResult .= "{\ql 8.".$nNum.". Федеральный Стандарт оценки «Определение ликвидационной стоимости» (ФСО №12), утвержденный Приказом Минэкономразвития России от 17.11.2016 N 721 \par}"; $nNum++; }
+            if ($nFSO13 == 1) { $cCommandResult .= "{\ql 8.".$nNum.". Федеральный Стандарт оценки «Определение инвестиционной стоимости» (ФСО №13), утвержденный Приказом Минэкономразвития России от 17.11.2016 N 722 \par}"; $nNum++; }
 
         }else if ($cCommandStr === "BD_BLOCK8_LASTNUM") {
             $cCommandResult = "8.".$nFSOCount.".";
@@ -348,12 +376,12 @@ if ($rowBid = mysqli_fetch_array($crsBids)) {
             $сDate = substr($rowBid["report_date"], 8, 2)." ".substr($rowBid["report_date"], 5, 2)." ".substr($rowBid["report_date"], 0, 4);
             $cCommandResult = $rowBid["report_num"]." от ".$сDate;
         }else if ($cCommandStr === "BidPrice") {
-            $cCommandResult = $rowBid["price"]."  (".num2str($rowBid["price"]).") руб. 00 копеек ";
+            $cCommandResult = $rowBid["price"]." (".num2str($rowBid["price"]).") руб. 00 копеек ";
         }else if ($cCommandStr === "Prepaid") {
-            $cCommandResult = $rowBid["prepaid"]."  (".num2str($rowBid["prepaid"]).") руб. 00 копеек ";
+            $cCommandResult = $rowBid["prepaid"]." (".num2str($rowBid["prepaid"]).") руб. 00 копеек ";
         }else if ($cCommandStr === "Remainder") {
             $nRemainder = $rowBid["price"] - $rowBid["prepaid"];
-            $cCommandResult = $nRemainder."  (".num2str($nRemainder).") руб. 00 копеек ";
+            $cCommandResult = $nRemainder." (".num2str($nRemainder).") руб. 00 копеек ";
         }else if ($cCommandStr === "EstimatePaid") {
             $cCommandResult = $rowBid["estimatePaid"];
         }else if ($cCommandStr === "EstimatePaidText") {
@@ -364,6 +392,20 @@ if ($rowBid = mysqli_fetch_array($crsBids)) {
             $cCommandResult = num2str($rowBid["estimateDt"]);
         }else if ($cCommandStr === "UserList") {
             $cCommandResult = CreateUserTable($link, $nIdRecord);
+        }else if ($cCommandStr === "P31Addi") {
+            $cCommandResult = "Oсмотра Объекта Исполнителем; {\\line}";
+            if ($rowBid["prepaid"] != 0){
+                $cCommandResult .= "Поступления аванса на счет Исполнителя; {\\line}";
+            }
+            $cCommandResult .= "предоставления Заказчиком Исполнителю всех документов, необходимых для проведения оценки, (Приложение №3).";
+        }else if ($cCommandStr === "P23") {
+            $nRemainder = $rowBid["price"] - $rowBid["prepaid"];
+            if ($nRemainder == 0){
+                $cCommandResult = "!!! По завершении работ все остались довольны!!!!";
+            }else{
+                $cCommandResult = "Оставшуюся сумму, в размере ".$nRemainder." (".num2str($nRemainder).") руб. 00 копеек Заказчик перечисляет на расчетный счет Исполнителя в течение ".
+                                    $rowBid["estimatePaid"]." (".num2str($rowBid["estimatePaid"]).") банковских дней с момента подписания Сторонами акта сдачи-приемки работ. ";
+            }
         }else if ($cCommandStr === "CurDate") {
             $nYear = date('Y');
             $nMonth = date('m');
@@ -371,6 +413,7 @@ if ($rowBid = mysqli_fetch_array($crsBids)) {
             $cCommandResult = $nDay." ".$arMonths[$nMonth]." ".$nYear. " г.";
 
         }
+
         $cResult = substr($cResult, 0, $nStartPos) . iconv("UTF-8", "Windows-1251", $cCommandResult) . substr($cResult, $nEndPos+3);
     }
 

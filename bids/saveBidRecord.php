@@ -71,9 +71,9 @@ $cNumDog   = $_POST["txtNumDog"];
 $cDtAct  = trim(htmlspecialchars($_POST["txtDtAct"], ENT_QUOTES));
 $cDtContract  = trim(htmlspecialchars($_POST["txtDtContract"], ENT_QUOTES));
 $cDtDone  = trim(htmlspecialchars($_POST["txtDtDone"], ENT_QUOTES));
+$nFL = ($_POST["chkFL"] == "on" ? 1 : 0);
 
-
-$sSQL = "Update bids Set num = '".$cNum."', price = ".$nPrice.",  prepaid = ".$nPrepaid.", estimateDt = ".$nEstimateDt.
+$sSQL = "Update bids Set num = '".$cNum."', price = ".$nPrice.",  prepaid = ".$nPrepaid.", isFL = ".$nFL.", estimateDt = ".$nEstimateDt.
                       ", estimatePaid = ".$nEstimatePaid.", custName = '".$cCustName."', custFullName = '".$cCustFullName."', custAddress = '".$cCustAddress.
                      "', custINN = '".$cCustINN."', custKPP = '".$cCustKPP."', custOGRN = '".$cCustOGRN."', dt = '".$cDtBid."', dtDone = '".$cDtDone."', dtAct = '".$cDtAct."', dtContract = '".$cDtContract.
                      "', custBIK = '".$cCustBIK."', custRS = '".$cCustRS."', custKS = '".$cCustKS."', custBank = '".$cCustBank."', custBoss = '".$cCustBoss."', custBossFullName = '".$cCustBossFullName.

@@ -78,14 +78,16 @@ $nIdRecord = $_POST["id_record"];      /** @var INTEGER  $nIdRecord */
 
     $crsSpra = mysqli_query($link, $sSQL);
     if ($rowSpra = mysqli_fetch_array($crsSpra)) {
+        $cName  = htmlspecialchars_decode($rowSpra['name']);
+        $cNum  = htmlspecialchars_decode($rowSpra['num']);
 
         echo '<div class="form-group">';
         echo '  <div class="col-sm-3"><label class="control-label" for="txtName">Страховщик</label></div>';
-        echo '  <div class="col-sm-9"><input class="form-control ctrlFormSpraEdit" name="txtName" id="txtName" type="text" value="' . $rowSpra['name'] . '"></div>';
+        echo '  <div class="col-sm-9"><input class="form-control ctrlFormSpraEdit" name="txtName" id="txtName" type="text" value="' . $cName . '"></div>';
         echo '</div>';
         echo '<div class="form-group">';
         echo '  <div class="col-sm-3"><label class="control-label" for="txtNum">Страховой полис:</label></div>';
-        echo '  <div class="col-sm-9"><input class="form-control ctrlFormSpraEdit" name="txtNum" id="txtNum" type="text" value="' . $rowSpra['num'] . '"></div>';
+        echo '  <div class="col-sm-9"><input class="form-control ctrlFormSpraEdit" name="txtNum" id="txtNum" type="text" value="' . $cNum . '"></div>';
         echo '</div>';
 
         echo '<div class="form-group">';

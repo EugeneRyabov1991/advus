@@ -67,6 +67,9 @@ $nIdRecord = $_POST["id_record"];      /** @var INTEGER  $nIdRecord */
     $cDtContract = $rowBid['dtContract'];
     $cDtDone     = $rowBid['dtDone'];
 
+    $isFL     = $rowBid['isFL'];
+    $cFL = ($isFL==1 ? "CHECKED" : "");
+
     echo '<div class="row" style="padding-left: 15px; padding-right: 15px">';
     echo ' <div class="form-group">';
     echo '  <div class="col-sm-2"><label class="control-label" for="txtBidCode">Номер договора:</label></div>';
@@ -128,9 +131,12 @@ $nIdRecord = $_POST["id_record"];      /** @var INTEGER  $nIdRecord */
 
     echo '<div class="form-group">';
     echo '  <div class="col-sm-4"><label class="control-label" for="txtCustName">Краткое название организации:</label></div>';
-    echo '  <div class="col-sm-8">
+    echo '  <div class="col-sm-6">
               <input class="form-control ctrlFormBidEdit" name="txtCustName" id="txtCustName" type="text" value="'.$cCustName.'">             
             </div>';
+
+    echo '  <div class="col-sm-2"><INPUT TYPE="checkbox" class="ctrlFormBidCheckbox" NAME="chkFL" ID="chkFL" '.$cFL.'/>Физ.лицо</div>';
+
     echo '</div>';
 
     echo '<div class="form-group">';

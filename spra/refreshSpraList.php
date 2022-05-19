@@ -66,7 +66,7 @@ $cIdUser = $_POST["gnCurrentUserId"];
             "<a class='marginR10 btn btn-primary btn-sm' role='button' title='Удалить...' onClick='DeleteSpraRecord($nId, \"$cMode\");'><i class='fa fa-lg fa-trash-o'></i></a>".
             "</td></tr>";
     }else if ($cMode == "USERS") {
-          $cName = $rowSpra['name'];
+          $cName = htmlspecialchars_decode($rowSpra['name']);
           $cLogin   = $rowSpra['login'];
           $cEmail   =  htmlspecialchars_decode($rowSpra['email'], ENT_QUOTES);
           $cPhone   = $rowSpra['phone'];
@@ -77,8 +77,8 @@ $cIdUser = $_POST["gnCurrentUserId"];
                 "<a class='marginR10 btn btn-primary btn-sm' role='button' title='Удалить...' onClick='DeleteSpraRecord($nId, \"$cMode\");'><i class='fa fa-lg fa-trash-o'></i></a>".
               "</td></tr>";
     }else if ($cMode == "INSURANCES") {
-        $cName = $rowSpra['name'];
-        $cNum   = $rowSpra['num'];
+        $cName = htmlspecialchars_decode($rowSpra['name']);
+        $cNum   = htmlspecialchars_decode($rowSpra['num']);
         $cDtStart   = $rowSpra['dt_start'];
         $cDtFinish   = $rowSpra['dt_finish'];
         $cSum    = $rowSpra['sum'];

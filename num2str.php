@@ -79,5 +79,5 @@ function num2str($sourceNumber){
     $cResult = $sign.implode(' ',array_reverse($result));
     $cResult = mb_strtoupper(mb_substr($cResult, 0, 1, 'UTF-8'), 'UTF-8').mb_substr($cResult, 1, 1000, 'UTF-8');
 
-    return  $cResult;
+    return  trim($cResult);
 }
