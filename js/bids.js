@@ -251,7 +251,7 @@ function BidDetails(nId_){
         "gnCurrentUserId"  : $("#txtCurrentUserId").val(),
         "id_record"        : nId_
     };
-    $("#divHeader").html("Работа с составом заявки "+$("#tdBidNum"+nId_).html());
+    $("#divHeader").html("<a class='btn btn-primary btn-lg marginB10' role='button'  onClick='SelectTabBids()' title='К списку заявок'><i class='fa fa-lg fa-backward marginR5'></i></a>Работа с составом заявки "+$("#tdBidNum"+nId_).html());
     $("#pnlContent").html("");
     $("#divProgressBar").fadeIn();
 

@@ -326,6 +326,12 @@ if ($rowBid = mysqli_fetch_array($crsBids)) {
             }else{
                $cCommandResult = "";
             }
+        }else if ($cCommandStr === "CustBossPost") {
+            if ($isFFL == 0) {
+                $cCommandResult = "Генеральный директор";
+            }else{
+                $cCommandResult = "";
+            }
         }else if ($cCommandStr === "CustTypeDoc") {
                  $cCommandResult = UnEncodingStr($rowBid["custDocType"]);
         }else if ($cCommandStr === "BD_P21") {
@@ -376,12 +382,12 @@ if ($rowBid = mysqli_fetch_array($crsBids)) {
             $сDate = substr($rowBid["report_date"], 8, 2)." ".substr($rowBid["report_date"], 5, 2)." ".substr($rowBid["report_date"], 0, 4);
             $cCommandResult = $rowBid["report_num"]." от ".$сDate;
         }else if ($cCommandStr === "BidPrice") {
-            $cCommandResult = $rowBid["price"]." (".num2str($rowBid["price"]).") руб. 00 копеек ";
+            $cCommandResult = $rowBid["price"]." (".num2str($rowBid["price"]).") руб. 00 копеек";
         }else if ($cCommandStr === "Prepaid") {
-            $cCommandResult = $rowBid["prepaid"]." (".num2str($rowBid["prepaid"]).") руб. 00 копеек ";
+            $cCommandResult = $rowBid["prepaid"]." (".num2str($rowBid["prepaid"]).") руб. 00 копеек";
         }else if ($cCommandStr === "Remainder") {
             $nRemainder = $rowBid["price"] - $rowBid["prepaid"];
-            $cCommandResult = $nRemainder." (".num2str($nRemainder).") руб. 00 копеек ";
+            $cCommandResult = $nRemainder." (".num2str($nRemainder).") руб. 00 копеек";
         }else if ($cCommandStr === "EstimatePaid") {
             $cCommandResult = $rowBid["estimatePaid"];
         }else if ($cCommandStr === "EstimatePaidText") {
@@ -393,25 +399,56 @@ if ($rowBid = mysqli_fetch_array($crsBids)) {
         }else if ($cCommandStr === "UserList") {
             $cCommandResult = CreateUserTable($link, $nIdRecord);
         }else if ($cCommandStr === "P31Addi") {
-            $cCommandResult = "Oсмотра Объекта Исполнителем; {\\line}";
+            $cCommandResult = "- Oсмотра Объекта Исполнителем; {\\line}";
             if ($rowBid["prepaid"] != 0){
-                $cCommandResult .= "Поступления аванса на счет Исполнителя; {\\line}";
+                $cCommandResult .= "- Поступления аванса на счет Исполнителя; {\\line}";
             }
-            $cCommandResult .= "предоставления Заказчиком Исполнителю всех документов, необходимых для проведения оценки, (Приложение №3).";
+            $cCommandResult .= "- Предоставления Заказчиком Исполнителю всех документов, необходимых для проведения оценки, (Приложение №3).";
+        }else if ($cCommandStr === "P22") {
+            $nRemainder = $rowBid["price"] - $rowBid["prepaid"];
+            $cCommandResult = "";
+            if ($rowBid["prepaid"] > 0)
+                $cCommandResult .= "Заказчик перечисляет на расчетный счет Исполнителя аванс в размере ".$rowBid["prepaid"]." (".num2str($rowBid["prepaid"]).") руб. 00 копеек".
+                                   ", НДС не облагается в связи с применением Исполнителем УСН в течение ".
+                                   $rowBid["estimatePaid"]."(".num2str($rowBid["estimatePaid"]).")".
+                                   " банковских дней с момента подписания Сторонами настоящего Договора.";
+            else
+                $cCommandResult .= "Авансовый платеж по данному договору не предусмотрен.";
         }else if ($cCommandStr === "P23") {
             $nRemainder = $rowBid["price"] - $rowBid["prepaid"];
             if ($nRemainder == 0){
-                $cCommandResult = "!!! По завершении работ все остались довольны!!!!";
+                $cCommandResult = "Договор заключается с условием полной предоплаты.";
             }else{
-                $cCommandResult = "Оставшуюся сумму, в размере ".$nRemainder." (".num2str($nRemainder).") руб. 00 копеек Заказчик перечисляет на расчетный счет Исполнителя в течение ".
-                                    $rowBid["estimatePaid"]." (".num2str($rowBid["estimatePaid"]).") банковских дней с момента подписания Сторонами акта сдачи-приемки работ. ";
+                if ($rowBid["prepaid"] > 0)
+                   $cCommandResult = "Оставшуюся";
+                else
+                   $cCommandResult = "Полную";
+                $cCommandResult .= " сумму, в размере ".$nRemainder." (".num2str($nRemainder).") руб. 00 копеек Заказчик перечисляет на расчетный счет Исполнителя в течение ".
+                    $rowBid["estimatePaid"]." (".num2str($rowBid["estimatePaid"]).") банковских дней с момента подписания Сторонами акта сдачи-приемки работ. ";
             }
         }else if ($cCommandStr === "CurDate") {
             $nYear = date('Y');
             $nMonth = date('m');
             $nDay = date('d');
             $cCommandResult = $nDay." ".$arMonths[$nMonth]." ".$nYear. " г.";
-
+        }else if ($cCommandStr === "P13") {
+            $cCommandResult = "";
+            if ($nFSOO7 == 1) { $cCommandResult .= "{\ql Федеральный Стандарт оценки «Оценка недвижимости» (ФСО №7), утвержденный Приказом Минэкономразвития России от 25.09.2014 N 611 \par}"; }
+            if ($nFSOO8 == 1) { $cCommandResult .= "{\ql Федеральный Стандарт оценки «Оценка бизнеса» (ФСО №8), утвержденный Приказом Минэкономразвития России от 01.06.2015 N 326 \par}"; }
+            if ($nFSOO9 == 1) { $cCommandResult .= "{\ql Федеральный Стандарт оценки «Оценка для целей залога» (ФСО №9), утвержденный Приказом Минэкономразвития России от 01.06.2015 N 327 \par}"; }
+            if ($nFSO10 == 1) { $cCommandResult .= "{\ql Федеральный Стандарт оценки «Оценка стоимости машин и оборудования» (ФСО №10), утвержденный Приказом Минэкономразвития России от 01.06.2015 N 328 \par}"; }
+            if ($nFSO11 == 1) { $cCommandResult .= "{\ql Федеральный Стандарт оценки «Оценка нематериальных активов и интеллектуальной собственности» (ФСО №11), утвержденный Приказом Минэкономразвития России от 22.06.2015 N 385 \par}"; }
+            if ($nFSO12 == 1) { $cCommandResult .= "{\ql Федеральный Стандарт оценки «Определение ликвидационной стоимости» (ФСО №12), утвержденный Приказом Минэкономразвития России от 17.11.2016 N 721 \par}"; }
+            if ($nFSO13 == 1) { $cCommandResult .= "{\ql Федеральный Стандарт оценки «Определение инвестиционной стоимости» (ФСО №13), утвержденный Приказом Минэкономразвития России от 17.11.2016 N 722 \par}"; }
+            $cCommandResult .= ".";
+        }else if ($cCommandStr === "P421") {
+            $cCommandResult = "";
+            if ($nFSOO8 == 1) { $cCommandResult .= ", ФСО №8"; }
+            if ($nFSOO9 == 1) { $cCommandResult .= ", ФСО №9"; }
+            if ($nFSO10 == 1) { $cCommandResult .= ", ФСО №10"; }
+            if ($nFSO11 == 1) { $cCommandResult .= ", ФСО №11"; }
+            if ($nFSO12 == 1) { $cCommandResult .= ", ФСО №12"; }
+            if ($nFSO13 == 1) { $cCommandResult .= ", ФСО №13"; }
         }
 
         $cResult = substr($cResult, 0, $nStartPos) . iconv("UTF-8", "Windows-1251", $cCommandResult) . substr($cResult, $nEndPos+3);
