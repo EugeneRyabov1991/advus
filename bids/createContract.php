@@ -111,6 +111,8 @@ if ($rowBid = mysqli_fetch_array($crsBids)) {
         $cInsuranceDtFinish = $rowInsurance["dt_finish"];
         $cInsuranceSum = $rowInsurance["sum"];
     }
+    $nType = $rowBid['id_type'];
+    $nSubjType = $rowBid['subjType'];
 
     $nSelfFirmId = $rowBid["id_firm"];
 
@@ -134,8 +136,14 @@ if ($rowBid = mysqli_fetch_array($crsBids)) {
     header("Content-Disposition: attachment; filename=newact.rtf");
 
 // Выводим содержимое файла
-    $hFile = fopen("../templates/contract.rtf", "r") or die("Unable to open file!");
-    $cResult = fread($hFile, filesize("../templates/contract.rtf"));
+    $cFileName = "../templates/contract.rtf";
+    if ($nType == 1) $cFileName = "../templates/contract_consult.rtf";
+    else{
+      if ($nSubjType == 2) $cFileName = "../templates/contract_bis.rtf";
+      if (($nSubjType == 3)||($nSubjType == 5)||($nSubjType == 6)||($nSubjType == 7)) $cFileName = "../templates/contract_equip.rtf";
+    }
+    $hFile = fopen($cFileName, "r") or die("Unable to open file!");
+    $cResult = fread($hFile, filesize($cFileName));
 
     while (!(strpos($cResult, "@~@") === false)) {
         $nStartPos = strpos($cResult, "@~@");
