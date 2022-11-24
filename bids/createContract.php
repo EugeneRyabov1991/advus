@@ -215,7 +215,8 @@ if ($rowBid = mysqli_fetch_array($crsBids)) {
             }
         }else if ($cCommandStr === "SelfFirmAddrJ") {
             if ($nSelfFirmId == 1) {
-                $cCommandResult = "191023, г. Санкт-Петербург, улица Садовая, дом 28-30, корпус 4, пом.11-Н";
+//                $cCommandResult = "191023, г. Санкт-Петербург, улица Садовая, дом 28-30, корпус 4, пом.11-Н";
+                $cCommandResult = "191014, г. Санкт-Петербург, Ковенский пер, дом 22-24, литера А, 6Н, офис 3";
             }else if ($nSelfFirmId == 2) {
                 $cCommandResult = "191014, г. Санкт-Петербург, Ковенский пер, дом 22-24, литера А, 6Н, офис 2";
             }else if ($nSelfFirmId == 3) {
